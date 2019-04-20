@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        BerniLin 21&#39;s blog
+        Vue生命周期｜BerniLin 21&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="http://linsizao.github.io/tags/test/">
+    <link rel="canonical" href="http://linsizao.github.io/2019/04/20/Vue生命周期/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -43,7 +43,7 @@
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="" class="animated fadeIn">
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost="false" data-istags="true
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost="true" data-istags="false
 " data-ishome="false">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -142,199 +142,194 @@
 
 <!-- Main Content -->
 
+<!--only post-->
 
-<!-- Page Header -->
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 visible-xs-block visible-sm-block">
-    <div class="row">
-        <header class="intro-header">
-            <div class="container">
-                <div class="site-heading text-center">
-                    <div class="about-me">
-                        <!--移动端头部显示-->
-                        <img src="http://pp80ekjth.bkt.clouddn.com/header.jpg">
-                        <h5><a href="/about/">BerniLin 21</a></h5>
-                        <p>醒来，读书，写长长的代码</p>
+
+<img class="wechat-title-img" src="http://pp80ekjth.bkt.clouddn.com/bg8.jpg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('http://pp80ekjth.bkt.clouddn.com/bg8.jpg?imageView2/1/w/1400/h/400/interlace/1/q/90')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>Vue生命周期</h1>
+                    
+                    <span class="meta">
+                         作者 BerniLin 21
+                        <span>
+                          日期 2019-04-20
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/Tags/#Vue" title="Vue">Vue</a>
+                        
                     </div>
                 </div>
             </div>
-        </header>
+        </div>
     </div>
-</div>
-<!-- Main Content -->
-<div class="container custom-haojen-container">
-    <!-- Post Container -->
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12 col-xs-12 post-container">
-            <!-- Main Content -->
+    <div class="post-title-haojen">
+        <span>
+            Vue生命周期
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <pre><code class="code">
+&lt;template&gt;
+  &lt;div class=&quot;hello&quot;&gt;
+    &lt;h1&gt;{{msg}}&lt;/h1&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  name: &apos;HelloWorld&apos;,
+  data () {
+    return {
+      msg: &apos;Vue组件生命周期&apos;
+    }
+  },
+  methods:{
+
+  },
+  beforeCreate(){
+    console.log(&apos;创建前状态,el和data未初始化,在这里加个loding事件&apos;)
+  },
+  created(){
+    console.log(&apos;创建完毕状态，完成了data初始化,el还未初始化，结束loading，做初始化操作&apos;)
+  },
+  beforeMount(){
+    console.log(&apos;挂载前状态，完成了el和data的初始化,发起后端请求，拿到数据，配合路由钩子做一些事情&apos;)
+  },
+  mounted(){
+    console.log(&apos;挂载结束状态,完成了挂载&apos;)
+  },
+  beforeUpdate(){
+    console.log(&apos;更新前状态&apos;)
+  },
+  updated(){
+    console.log(&apos;更新完成状态,data里面的值被修改后，将会触发update的操作&apos;)
+  },
+  beforeDestroy(){
+    console.log(&apos;beforeDestro组件销毁前状态,页面组件推出前执行一些操作&apos;)
+  },
+  destroyed(){
+    console.log(&apos;组件销毁完成状态&apos;)
+  }
+}
+&lt;/script&gt;
+
+&lt;!-- Add &quot;scoped&quot; attribute to limit CSS to this component only --&gt;
+&lt;style scoped&gt;
+
+&lt;/style&gt;
+
+</code></pre>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2019/04/20/微信小程序生命周期/" data-toggle="tooltip" data-placement="top" title="微信小程序生命周期">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2019/04/07/小王子/" data-toggle="tooltip" data-placement="top" title="小王子">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
 
 
+                <!--加入新的评论系统-->
+                
 
-<div class="post-preview " style="background-image: url('http://pp80ekjth.bkt.clouddn.com//image/bg8.jpg')">
-    <a href="/2019/03/24/ChineseTest/">
-        <h2 class="post-title">
-            中文测试
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-03-24
-        </p>
-        
-        <h3 class="post-subtitle">
-            is a test
-        </h3>
-        
-        <div class="post-content-preview">
-            <p>
-                创建一条博文
-This is a Chinese test post.
-善我王上魚、產生資西員合兒臉趣論。畫衣生這著爸毛親可時，安程幾？合學作。觀經而作建。都非子作這！法如言子你關！手師也。
-以也座論頭室業放。要車時地變此親不老高小是統習直麼調未，行年香一？
-就竟在，是我童示讓利分和異種百路關母..
-            </p>
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    
+                </div>
+            </div>
         </div>
-    </a>
 
-</div>
+        <div class="row">
+            <!-- Sidebar Container -->
 
-<hr>
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
 
-
-
-
-<!-- 翻页 pager -->
-
-<ul class="pager">
-    
-    
-</ul>
-
-
-        </div>
-        <!-- Sidebar Container -->
-        <div class="
-                col-lg-3 col-lg-offset-0
-                col-md-3 col-md-offset-0
-                col-sm-12
-                col-xs-12
-                sidebar-container
-            ">
-
-            <!-- About Me -->
-            <section class="visible-md visible-lg" style="padding: 0 18px">
-                <div class="short-about">
-                    <!--侧边栏头像-->
-                    
-                    <img src="http://pp80ekjth.bkt.clouddn.com/header.jpg">
-                    
-                    <h5><a href="/about/">BerniLin 21</a></h5>
-                    
-                    <p>醒来，读书，写长长的代码</p>
-                    
-                    <hr>
-                    <!-- SNS Link 社交 -->
-                    <ul class="list-inline">
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
                         
+                        <a class="tag" href="/Tags/#Vue" title="Vue">Vue</a>
                         
-                        <li>
-                            <a target="_blank" href="https://twitter.com/linsizao">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                        </span>
-                            </a>
-                        </li>
-                        
-                        
-                        <li>
-                            <a target="_blank" href="https://www.zhihu.com/people/BerinLin21">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa  fa-stack-1x fa-inverse">知</i>
-                                        </span>
-                            </a>
-                        </li>
-                        
+                    </div>
+                </section>
+                
 
+                <!-- Friends Blog -->
+                
+                <div style="margin-top: 20px;">
+                    <h5 class="text-center">FRIENDS</h5>
+                    <ul class="list-inline text-center">
                         
-                        <li>
-                            <a target="_blank" href="http://weibo.com/6740509319">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                                        </span>
-                            </a>
-                        </li>
+                        <li><a href="https://vuejs.org">vuejs</a></li>
                         
-
+                        <li><a href="https://juejin.im/user/59a2ef36f265da24843e677c">juejin im</a></li>
                         
-
+                        <li><a href="http://www.ruanyifeng.com">Ruan Yifeng&#39;s</a></li>
                         
-                        <li>
-                            <a target="_blank" href="https://github.com/linsizao">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                        </span>
-                            </a>
-                        </li>
-                        
-
+                        <li><a href="hhttp://https://www.liaoxuefeng.com">liao xue feng</a></li>
                         
                     </ul>
                 </div>
-            </section>
-
-            <!-- Featured Tags  标签 -->
-            
-            <section>
-                <div class="tags">
-                    
-                    
-                    <a href="/Tags/#test" title="test" rel="1">test</a>
-                    
-                    
-                    
-                    <a href="/Tags/#古文" title="古文" rel="1">古文</a>
-                    
-                    
-                    
-                    <a href="/Tags/#Vue" title="Vue" rel="1">Vue</a>
-                    
-                    
-                    
-                    <a href="/Tags/#Hexo" title="Hexo" rel="1">Hexo</a>
-                    
-                    
-                    
-                    <a href="/Tags/#读书" title="读书" rel="2">读书</a>
-                    
-                    
-                    
-                    <a href="/Tags/#微信小程序" title="微信小程序" rel="1">微信小程序</a>
-                    
-                    
-                </div>
-            </section>
-            
-
-            
-            <hr>
-            <h5 style="text-align: center;">Friends</h5>
-            <ul class="list-inline" style="text-align: center;">
                 
-                <li><a href="https://vuejs.org" target="_blank">vuejs</a></li>
-                
-                <li><a href="https://juejin.im/user/59a2ef36f265da24843e677c" target="_blank">juejin im</a></li>
-                
-                <li><a href="http://www.ruanyifeng.com" target="_blank">Ruan Yifeng&#39;s</a></li>
-                
-                <li><a href="hhttp://https://www.liaoxuefeng.com" target="_blank">liao xue feng</a></li>
-                
-
-            </ul>
-            
+            </div>
         </div>
+
     </div>
-</div>
+</article>
+
+
+
+
+
+
 
 <!-- Footer -->
 <!-- Footer -->
