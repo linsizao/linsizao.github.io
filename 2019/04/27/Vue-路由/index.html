@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        Vue生命周期｜BerniLin 21&#39;s blog
+        Vue Router 之 路由基础篇｜BerniLin 21&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="http://linsizao.github.io/2019/04/20/Vue生命周期/">
+    <link rel="canonical" href="http://linsizao.github.io/2019/04/27/Vue-路由/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -162,12 +162,12 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>Vue生命周期</h1>
+                    <h1>Vue Router 之 路由基础篇</h1>
                     
                     <span class="meta">
                          作者 BerniLin 21
                         <span>
-                          日期 2019-04-20
+                          日期 2019-04-27
                          </span>
                     </span>
                     <div class="tags text-center">
@@ -181,7 +181,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            Vue生命周期
+            Vue Router 之 路由基础篇
         </span>
     </div>
 </header>
@@ -192,22 +192,43 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <blockquote><p>Vue / Vue 生命周期</p>
+                <blockquote><p>Vue / vue Router</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;hello&quot;&gt;</span><br><span class="line">    &lt;h1&gt;&#123;&#123;msg&#125;&#125;&lt;/h1&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &apos;HelloWorld&apos;,</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      msg: &apos;Vue组件生命周期&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line">  beforeCreate()&#123;</span><br><span class="line">    console.log(&apos;创建前状态,el和data未初始化,在这里加个loding事件&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line">  created()&#123;</span><br><span class="line">    console.log(&apos;创建完毕状态，完成了data初始化,el还未初始化，结束loading，做初始化操作&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line">  beforeMount()&#123;</span><br><span class="line">    console.log(&apos;挂载前状态，完成了el和data的初始化,发起后端请求，拿到数据，配合路由钩子做一些事情&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted()&#123;</span><br><span class="line">    console.log(&apos;挂载结束状态,完成了挂载&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line">  beforeUpdate()&#123;</span><br><span class="line">    console.log(&apos;更新前状态&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line">  updated()&#123;</span><br><span class="line">    console.log(&apos;更新完成状态,data里面的值被修改后，将会触发update的操作&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line">  beforeDestroy()&#123;</span><br><span class="line">    console.log(&apos;beforeDestro组件销毁前状态,页面组件推出前执行一些操作&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line">  destroyed()&#123;</span><br><span class="line">    console.log(&apos;组件销毁完成状态&apos;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- Add &quot;scoped&quot; attribute to limit CSS to this component only --&gt;</span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p>使用Vue创建单页应用势必会用到Vue Router，<br>此前关于Vue Router的知识比较零散，现在得空便来整理Vue Router。。。</p>
+<h2 id="简单路由"><a href="#简单路由" class="headerlink" title="简单路由"></a>简单路由</h2><p>路由跳转可使用申明式跳转和编程式跳转，</p>
+<h3 id="申明式"><a href="#申明式" class="headerlink" title="申明式"></a>申明式</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!-- &lt;router-link&gt; 默认会被渲染成一个 `&lt;a&gt;` 标签 --&gt;</span><br><span class="line">&lt;router-link to=&quot;/foo&quot;&gt;Go to Foo&lt;/router-link&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 路由匹配到的组件将渲染在这里 --&gt;</span><br><span class="line">&lt;router-view&gt;&lt;/router-view&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="编程式"><a href="#编程式" class="headerlink" title="编程式"></a>编程式</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 命名的路由</span><br><span class="line">router.push(&#123; name: &apos;user&apos;, params: &#123; userId: &apos;123&apos; &#125;&#125;)</span><br><span class="line"></span><br><span class="line">// 带查询参数，变成 /register?plan=private</span><br><span class="line">router.push(&#123; path: &apos;register&apos;, query: &#123; plan: &apos;private&apos; &#125;&#125;)</span><br></pre></td></tr></table></figure>
+<p>params 和 query 都是路由传值方式，但是如果提供了 path，params 将会被忽略</p>
+<p>ps：其他的编程式跳转<br>  1)、this.$router.replace()<br>    不同就是，它不会向 history 添加新记录，而是跟它的方法名一样 —— 替换掉当前的 history 记录。<br>  2)、this.$router.go()<br>    这个方法的参数是一个整数，意思是在 history 记录中向前或者后退多少步，类似 window.history.go(n)。</p>
+<h3 id="动态路由"><a href="#动态路由" class="headerlink" title="动态路由"></a>动态路由</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">routes: [</span><br><span class="line">  // 动态路径参数 以冒号开头</span><br><span class="line">  &#123; path: &apos;/user/:id&apos;, component: User &#125;,</span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
+<h2 id="路由嵌套以及路由懒加载的实现"><a href="#路由嵌套以及路由懒加载的实现" class="headerlink" title="路由嵌套以及路由懒加载的实现"></a>路由嵌套以及路由懒加载的实现</h2><p>路由嵌套可简单理解为组件下再放组件，并实现路由切换</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">/user/foo/profile                     /user/foo/posts</span><br><span class="line">+------------------+                  +-----------------+</span><br><span class="line">| User             |                  | User            |</span><br><span class="line">| +--------------+ |                  | +-------------+ |</span><br><span class="line">| | Profile      | |  +------------&gt;  | | Posts       | |</span><br><span class="line">| |              | |                  | |             | |</span><br><span class="line">| +--------------+ |                  | +-------------+ |</span><br><span class="line">+------------------+                  +-----------------+</span><br></pre></td></tr></table></figure>
+<p>异步组件定义为返回一个 Promise 的工厂函数 ：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const Foo = () =&gt; Promise.resolve(&#123; /* 组件定义对象 */ &#125;)</span><br></pre></td></tr></table></figure>
+<p>然后我们可以使用动态 import 语法来定义代码分块点：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import(&apos;./Foo.vue&apos;) // 返回 Promise</span><br></pre></td></tr></table></figure>
+<p>结合这两者，这就是如何定义一个能够被 Webpack 自动代码分割的异步组件。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const Foo = () =&gt; import(&apos;./Foo.vue&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>最后代码如下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  path: &apos;/redirect&apos;,</span><br><span class="line">  component: Layout,</span><br><span class="line">  hidden: true,</span><br><span class="line">  children: [     //子组件</span><br><span class="line">    &#123;</span><br><span class="line">      path: &apos;/redirect/:path*&apos;,</span><br><span class="line">      component: () =&gt; import(&apos;@/views/redirect/index&apos;)   //懒加载</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="命名路由及命名视图"><a href="#命名路由及命名视图" class="headerlink" title="命名路由及命名视图"></a>命名路由及命名视图</h2><p>由命名路由组成命名视图</p>
+<h3 id="命名路由"><a href="#命名路由" class="headerlink" title="命名路由"></a>命名路由</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//路由设置</span><br><span class="line">const router = new VueRouter(&#123;</span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">      path: &apos;/user/:userId&apos;,</span><br><span class="line">      name: &apos;user&apos;,             //命名</span><br><span class="line">      component: User</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">//router-link 跳转</span><br><span class="line">&lt;router-link :to=&quot;&#123; name: &apos;user&apos;, params: &#123; userId: 123 &#125;&#125;&quot;&gt;User&lt;/router-link&gt;</span><br><span class="line"></span><br><span class="line">//router.push()跳转</span><br><span class="line">this.$router.push(&#123; name: &apos;user&apos;, params: &#123; userId: 123 &#125;&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="嵌套命名视图"><a href="#嵌套命名视图" class="headerlink" title="嵌套命名视图"></a>嵌套命名视图</h3><p>业务逻辑：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/settings/emails                                       /settings/profile</span><br><span class="line">+-----------------------------------+                  +------------------------------+</span><br><span class="line">| UserSettings                      |                  | UserSettings                 |</span><br><span class="line">| +-----+-------------------------+ |                  | +-----+--------------------+ |</span><br><span class="line">| | Nav | UserEmailsSubscriptions | |  +------------&gt;  | | Nav | UserProfile        | |</span><br><span class="line">| |     +-------------------------+ |                  | |     +--------------------+ |</span><br><span class="line">| |     |                         | |                  | |     | UserProfilePreview | |</span><br><span class="line">| +-----+-------------------------+ |                  | +-----+--------------------+ |</span><br><span class="line">+-----------------------------------+                  +------------------------------+</span><br></pre></td></tr></table></figure>
+<p>代码实现：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!-- UserSettings.vue --&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">  &lt;h1&gt;User Settings&lt;/h1&gt;</span><br><span class="line">  &lt;NavBar/&gt;</span><br><span class="line">  &lt;router-view/&gt;</span><br><span class="line">  &lt;router-view name=&quot;helper&quot;/&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">//路由配置</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  path: &apos;/settings&apos;,</span><br><span class="line">  // 你也可以在顶级路由就配置命名视图</span><br><span class="line">  component: UserSettings,</span><br><span class="line">  children: [&#123;</span><br><span class="line">    path: &apos;emails&apos;,</span><br><span class="line">    component: UserEmailsSubscriptions</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    path: &apos;profile&apos;,</span><br><span class="line">    components: &#123;</span><br><span class="line">      default: UserProfile,</span><br><span class="line">      helper: UserProfilePreview</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="重定向和别名"><a href="#重定向和别名" class="headerlink" title="重定向和别名"></a>重定向和别名</h2><h3 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h3><p>当用户访问 /a时，URL 将会被替换成 /b，然后匹配路由为 /b</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">routes: [</span><br><span class="line">  &#123; path: &apos;/a&apos;, redirect: &apos;/b&apos; &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h3 id="别名"><a href="#别名" class="headerlink" title="别名"></a>别名</h3><p>/a 的别名是 /b，意味着，当用户访问 /b 时，URL 会保持为 /b，但是路由匹配则为 /a，就像用户访问 /a 一样。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">routes: [</span><br><span class="line">  &#123; path: &apos;/a&apos;, component: A, alias: &apos;/b&apos; &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2019/04/20/微信小程序生命周期/" data-toggle="tooltip" data-placement="top" title="微信小程序生命周期">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2019/04/07/小王子/" data-toggle="tooltip" data-placement="top" title="小王子">Next Post &rarr;</a>
+                        <a href="/2019/04/20/微信小程序生命周期/" data-toggle="tooltip" data-placement="top" title="微信小程序生命周期">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -226,7 +247,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简单路由"><span class="toc-text">简单路由</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#申明式"><span class="toc-text">申明式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编程式"><span class="toc-text">编程式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态路由"><span class="toc-text">动态路由</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#路由嵌套以及路由懒加载的实现"><span class="toc-text">路由嵌套以及路由懒加载的实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命名路由及命名视图"><span class="toc-text">命名路由及命名视图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#命名路由"><span class="toc-text">命名路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#嵌套命名视图"><span class="toc-text">嵌套命名视图</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重定向和别名"><span class="toc-text">重定向和别名</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#重定向"><span class="toc-text">重定向</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#别名"><span class="toc-text">别名</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
