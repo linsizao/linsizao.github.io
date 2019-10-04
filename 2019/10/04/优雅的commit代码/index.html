@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        BerniLin 21&#39;s blog
+        优雅的 commit 你的代码｜BerniLin 21&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="http://linsizao.github.io/tags/古文/">
+    <link rel="canonical" href="http://linsizao.github.io/2019/10/04/优雅的commit代码/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -43,7 +43,7 @@
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="" class="animated fadeIn">
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost="false" data-istags="true
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost="true" data-istags="false
 " data-ishome="false">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -142,203 +142,159 @@
 
 <!-- Main Content -->
 
+<!--only post-->
 
-<!-- Page Header -->
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 visible-xs-block visible-sm-block">
-    <div class="row">
-        <header class="intro-header">
-            <div class="container">
-                <div class="site-heading text-center">
-                    <div class="about-me">
-                        <!--移动端头部显示-->
-                        <img src="/images/headImg.png">
-                        <h5><a href="/about/">BerniLin 21</a></h5>
-                        <p>醒来，读书，写长长的代码</p>
+
+<img class="wechat-title-img" src="undefined/images/bg5.jpg">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('/images/bg5.jpg?imageView2/1/w/1400/h/400/interlace/1/q/90')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>优雅的 commit 你的代码</h1>
+                    
+                    <span class="meta">
+                         作者 BerniLin 21
+                        <span>
+                          日期 2019-10-04
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/Tags/#Git" title="Git">Git</a>
+                        
                     </div>
                 </div>
             </div>
-        </header>
+        </div>
     </div>
-</div>
-<!-- Main Content -->
-<div class="container custom-haojen-container">
-    <!-- Post Container -->
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12 col-xs-12 post-container">
-            <!-- Main Content -->
+    <div class="post-title-haojen">
+        <span>
+            优雅的 commit 你的代码
+        </span>
+    </div>
+</header>
 
-
-
-<div class="post-preview " style="background-image: url('/images/bg2.jpg')">
-    <a href="/2019/03/24/ChineseTest/">
-        <h2 class="post-title">
-            中文测试
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-03-24
-        </p>
-        
-        <h3 class="post-subtitle">
-            is a test
-        </h3>
-        
-        <div class="post-content-preview">
-            <p>
-                创建一条博文
-This is a Chinese test post.
-善我王上魚、產生資西員合兒臉趣論。畫衣生這著爸毛親可時，安程幾？合學作。觀經而作建。都非子作這！法如言子你關！手師也。
-以也座論頭室業放。要車時地變此親不老高小是統習直麼調未，行年香一？
-就竟在，是我童示讓利分和異種百路關母..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-
-<!-- 翻页 pager -->
-
-<ul class="pager">
-    
-    
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <blockquote><p>git / git commit</p>
+</blockquote>
+<h2 id="常用的修改项"><a href="#常用的修改项" class="headerlink" title="常用的修改项"></a>常用的修改项</h2><p>  效果：</p>
+<ul>
+<li>feat: 新特性</li>
+<li>fix: 修改问题</li>
+<li>refactor: 代码重构</li>
+<li>docs: 文档修改</li>
+<li>style: 代码格式修改, 注意不是 css 修改</li>
+<li>test: 测试用例修改</li>
+<li>chore: 其他修改, 比如构建流程, 依赖管理.</li>
+<li>scope: commit 影响的范围, 比如: route, component, utils, build…</li>
+<li>subject: commit 的概述</li>
+<li>body: commit 具体修改内容, 可以分为多行</li>
+<li>footer: 一些备注, 通常是 BREAKING CHANGE 或修复的 bug 的链接.</li>
 </ul>
+<h2 id="常用的emoji"><a href="#常用的emoji" class="headerlink" title="常用的emoji"></a>常用的emoji</h2><p><img src="/images/git.png" alt="效果图"></p>
+<table><tr><th>emoji</th><th>emoji 代码</th><th>说明</th></tr><tr><td>art</td><td><code>:art:</code></td><td>提高代码的结构/格式</td></tr><tr><td>zap</td><td><code>:zap:</code></td><td>改善性能</td></tr><tr><td>fire</td><td><code>:fire:</code></td><td>删除代码或文件</td></tr><tr><td>bug</td><td><code>:bug:</code></td><td>修复一个bug</td></tr><tr><td>sparkles</td><td><code>:sparkles:</code></td><td>引入新特性</td></tr><tr><td>pencil</td><td><code>:pencil:</code></td><td>写文档</td></tr></table>
+
+<p>more:  <a href="https://gitmoji.carloscuesta.me/" target="_blank" rel="noopener">https://gitmoji.carloscuesta.me/</a></p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2019/06/16/hello-Webpack/" data-toggle="tooltip" data-placement="top" title="hello-Webpack">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
 
 
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#常用的修改项"><span class="toc-text">常用的修改项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用的emoji"><span class="toc-text">常用的emoji</span></a></li></ol>
+                </div>
+            </div>
         </div>
-        <!-- Sidebar Container -->
-        <div class="
-                col-lg-3 col-lg-offset-0
-                col-md-3 col-md-offset-0
-                col-sm-12
-                col-xs-12
-                sidebar-container
-            ">
 
-            <!-- About Me -->
-            <section class="visible-md visible-lg" style="padding: 0 18px">
-                <div class="short-about">
-                    <!--侧边栏头像-->
-                    
-                    <img src="/images/headImg.png">
-                    
-                    <h5><a href="/about/">BerniLin 21</a></h5>
-                    
-                    <p>醒来，读书，写长长的代码</p>
-                    
-                    <hr>
-                    <!-- SNS Link 社交 -->
-                    <ul class="list-inline">
-                        
-                        
-                        <li>
-                            <a target="_blank" href="https://twitter.com/linsizao">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                        </span>
-                            </a>
-                        </li>
-                        
-                        
-                        <li>
-                            <a target="_blank" href="https://www.zhihu.com/people/BerinLin21">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa  fa-stack-1x fa-inverse">知</i>
-                                        </span>
-                            </a>
-                        </li>
-                        
+        <div class="row">
+            <!-- Sidebar Container -->
 
-                        
-                        <li>
-                            <a target="_blank" href="http://weibo.com/6740509319">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                                        </span>
-                            </a>
-                        </li>
-                        
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
 
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
                         
+                        <a class="tag" href="/Tags/#Git" title="Git">Git</a>
+                        
+                    </div>
+                </section>
+                
 
+                <!-- Friends Blog -->
+                
+                <div style="margin-top: 20px;">
+                    <h5 class="text-center">FRIENDS</h5>
+                    <ul class="list-inline text-center">
                         
-                        <li>
-                            <a target="_blank" href="https://github.com/linsizao">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                        </span>
-                            </a>
-                        </li>
+                        <li><a href="https://vuejs.org">vuejs</a></li>
                         
-
+                        <li><a href="https://juejin.im/user/59a2ef36f265da24843e677c">juejin im</a></li>
+                        
+                        <li><a href="http://www.ruanyifeng.com">Ruan Yifeng&#39;s</a></li>
+                        
+                        <li><a href="hhttp://https://www.liaoxuefeng.com">liao xue feng</a></li>
                         
                     </ul>
                 </div>
-            </section>
-
-            <!-- Featured Tags  标签 -->
-            
-            <section>
-                <div class="tags">
-                    
-                    
-                    <a href="/Tags/#test" title="test" rel="1">test</a>
-                    
-                    
-                    
-                    <a href="/Tags/#古文" title="古文" rel="1">古文</a>
-                    
-                    
-                    
-                    <a href="/Tags/#Vue" title="Vue" rel="2">Vue</a>
-                    
-                    
-                    
-                    <a href="/Tags/#Hexo" title="Hexo" rel="1">Hexo</a>
-                    
-                    
-                    
-                    <a href="/Tags/#Git" title="Git" rel="1">Git</a>
-                    
-                    
-                    
-                    <a href="/Tags/#读书" title="读书" rel="2">读书</a>
-                    
-                    
-                    
-                    <a href="/Tags/#微信小程序" title="微信小程序" rel="1">微信小程序</a>
-                    
-                    
-                </div>
-            </section>
-            
-
-            
-            <hr>
-            <h5 style="text-align: center;">Friends</h5>
-            <ul class="list-inline" style="text-align: center;">
                 
-                <li><a href="https://vuejs.org" target="_blank">vuejs</a></li>
-                
-                <li><a href="https://juejin.im/user/59a2ef36f265da24843e677c" target="_blank">juejin im</a></li>
-                
-                <li><a href="http://www.ruanyifeng.com" target="_blank">Ruan Yifeng&#39;s</a></li>
-                
-                <li><a href="hhttp://https://www.liaoxuefeng.com" target="_blank">liao xue feng</a></li>
-                
-
-            </ul>
-            
+            </div>
         </div>
+
     </div>
-</div>
+</article>
+
+
+
+
+
+
 
 <!-- Footer -->
 <!-- Footer -->
