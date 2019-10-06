@@ -389,7 +389,7 @@ article blockquote cite:before{
     display: table-cell;
     vertical-align: middle;
     padding: 55px 15px 15px;
-    background: url('http://pp80ekjth.bkt.clouddn.com/bg12.jpg');
+    background: url('../images/bg1.png');
     background-size: cover;
 }
 
@@ -403,7 +403,7 @@ article blockquote cite:before{
 .intro-header .site-heading h1,
 .intro-header .page-heading h1,
 .intro-header .post-heading h1 {
-    text-shadow: 0 0 40px black;
+    /* text-shadow: 0 0 40px black; */
 }
 
 .intro-header .site-heading .subheading,
@@ -433,13 +433,13 @@ article blockquote cite:before{
     font-size: 30px;
     line-height: 1.4;
     margin-bottom: 0;
-    text-shadow: 0 0 40px black;
+    /* text-shadow: 0 0 40px black; */
 }
 
 .intro-header .post-heading .meta {
     font-weight: 300;
     font-size: 14px;
-    color: #eee;
+    color: #fff;
 }
 
 .intro-header .post-heading .meta span {
