@@ -2,7 +2,7 @@
 <html lang="en">
 <title>BerniLin 21's blog</title>
 <!-- Head tag -->
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,8 +44,8 @@
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="" class="animated fadeIn">
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost="true" data-istags="false
-" data-ishome="false">
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
@@ -143,10 +143,12 @@
 
 <!-- Main Content -->
 
+
 <!--only post-->
 
 
-<img class="wechat-title-img" src="undefined/images/bg1.png">
+<img class="wechat-title-img"
+     src="undefined/images/bg1.png">
 
 
 <style>
@@ -177,11 +179,16 @@
                           日期 2019-03-24
                          </span>
                     </span>
+                    <div class="meta">
+                      <span>字数: 344</span>
+                      <span>阅读数量:<span id="/2019/03/24/ChineseTest/" class="leancloud_visitors" data-flag-title="中文测试"></span>次</span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/Tags/#test" title="test">test</a>
+                        <a class="tag" href="/Tags/#test"
+                           title="test">test</a>
                         
-                        <a class="tag" href="/Tags/#古文" title="古文">古文</a>
+                        <a class="tag" href="/Tags/#古文"
+                           title="古文">古文</a>
                         
                     </div>
                 </div>
@@ -214,7 +221,8 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2019/03/31/写给年轻人的简明国学常识/" data-toggle="tooltip" data-placement="top" title="写给年轻人的简明国学常识">&larr; 上一篇</a>
+                        <a href="/2019/03/31/写给年轻人的简明国学常识/" data-toggle="tooltip" data-placement="top"
+                           title="写给年轻人的简明国学常识">&larr; 上一篇</a>
                     </li>
                     
                     
@@ -256,9 +264,11 @@
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/Tags/#test" title="test">test</a>
+                        <a class="tag" href="/Tags/#test"
+                           title="test">test</a>
                         
-                        <a class="tag" href="/Tags/#古文" title="古文">古文</a>
+                        <a class="tag" href="/Tags/#古文"
+                           title="古文">古文</a>
                         
                     </div>
                 </section>
@@ -353,7 +363,11 @@
                     <br>
                     <span id="busuanzi_container_site_pv" style="font-size: 12px;">MIA SAN MIA</span>
                 </p>
-
+                <!-- <p>
+                  <span id="busuanzi_container_site_pv"" style=" font-size: 12px;display:none;">总访问量：<span id="busuanzi_value_site_pv"></span>次</span>
+                  <span class="post-meta-divider">|</span>
+                  <span id="busuanzi_container_site_uv" style="font-size: 12px;display:none;">总访客：<span id="busuanzi_value_site_uv"></span>人</span>
+                </p> -->
             </div>
         </div>
     </div>
@@ -434,7 +448,46 @@
 </script>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
+<script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
+<script>
+  var APP_ID = 'erYGLgqXmQtCoFKaguuOPJhd';
+  var APP_KEY = 'yc5Jfn2fhX45zoupV8qPCi7o';
+  AV.init({
+    appId: APP_ID,
+    appKey: APP_KEY
+  });
+  // 显示次数
+  function showTime(Counter) {
+    var query = new AV.Query("Counter");
+    if ($(".leancloud_visitors").length > 0) {
+      var url = $(".leancloud_visitors").attr('id').trim();
+      // where field
+      query.equalTo("words", url);
+      // count
+      query.count().then(function (number) {
+        // There are number instances of MyClass where words equals url.
+        $(document.getElementById(url)).text(number ? number : '--');
+      }, function (error) {
+        // error is an instance of AVError.
+      });
+    }
+  }
+  // 追加pv
+  function addCount(Counter) {
+    var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'icafebolger.com';
+    var Counter = AV.Object.extend("Counter");
+    var query = new Counter;
+    query.save({
+      words: url
+    }).then(function (object) {
+    })
+  }
+  $(function () {
+    var Counter = AV.Object.extend("Counter");
+    addCount(Counter);
+    showTime(Counter);
+  });
+</script>
 <!--wechat title img-->
 <img class="wechat-title-img" src="/images/headImg.png">
 </body>

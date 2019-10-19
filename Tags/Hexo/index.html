@@ -2,7 +2,7 @@
 <html lang="en">
 <title>BerniLin 21's blog</title>
 <!-- Head tag -->
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -44,8 +44,8 @@
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="" class="animated fadeIn">
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost="false" data-istags="true
-" data-ishome="false">
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "false" data-istags="true
+" data-ishome = "false" >
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
@@ -152,7 +152,7 @@
                 <div class="site-heading text-center">
                     <div class="about-me">
                         <!--移动端头部显示-->
-                        <img src="/images/headImg.png">
+                        <img src="/images/headImg.png"/>
                         <h5><a href="/about/">BerniLin 21</a></h5>
                         <p>醒来，读书，写长长的代码</p>
                     </div>
@@ -170,7 +170,8 @@
 
 
 
-<div class="post-preview " style="background-image: url('/images/bg1.png')">
+<div class="post-preview "
+     style="background-image: url('/images/bg1.png')">
     <a href="/2019/04/06/hello-hexo/">
         <h2 class="post-title">
             Hello Hexo
@@ -223,7 +224,7 @@
                 <div class="short-about">
                     <!--侧边栏头像-->
                     
-                    <img src="/images/headImg.png">
+                    <img src="/images/headImg.png"/>
                     
                     <h5><a href="/about/">BerniLin 21</a></h5>
                     
@@ -289,39 +290,48 @@
                 <div class="tags">
                     
                     
-                    <a href="/Tags/#test" title="test" rel="1">test</a>
+                    <a href="/Tags/#test" title="test"
+                       rel="1">test</a>
                     
                     
                     
-                    <a href="/Tags/#古文" title="古文" rel="1">古文</a>
+                    <a href="/Tags/#古文" title="古文"
+                       rel="1">古文</a>
                     
                     
                     
-                    <a href="/Tags/#Vue" title="Vue" rel="2">Vue</a>
+                    <a href="/Tags/#Vue" title="Vue"
+                       rel="2">Vue</a>
                     
                     
                     
-                    <a href="/Tags/#webpack" title="webpack" rel="1">webpack</a>
+                    <a href="/Tags/#webpack" title="webpack"
+                       rel="1">webpack</a>
                     
                     
                     
-                    <a href="/Tags/#Hexo" title="Hexo" rel="1">Hexo</a>
+                    <a href="/Tags/#git" title="git"
+                       rel="1">git</a>
                     
                     
                     
-                    <a href="/Tags/#git" title="git" rel="1">git</a>
+                    <a href="/Tags/#Hexo" title="Hexo"
+                       rel="1">Hexo</a>
                     
                     
                     
-                    <a href="/Tags/#读书" title="读书" rel="2">读书</a>
+                    <a href="/Tags/#读书" title="读书"
+                       rel="2">读书</a>
                     
                     
                     
-                    <a href="/Tags/#微信小程序" title="微信小程序" rel="1">微信小程序</a>
+                    <a href="/Tags/#微信小程序" title="微信小程序"
+                       rel="1">微信小程序</a>
                     
                     
                     
-                    <a href="/Tags/#浏览器" title="浏览器" rel="1">浏览器</a>
+                    <a href="/Tags/#浏览器" title="浏览器"
+                       rel="1">浏览器</a>
                     
                     
                 </div>
@@ -408,7 +418,11 @@
                     <br>
                     <span id="busuanzi_container_site_pv" style="font-size: 12px;">MIA SAN MIA</span>
                 </p>
-
+                <!-- <p>
+                  <span id="busuanzi_container_site_pv"" style=" font-size: 12px;display:none;">总访问量：<span id="busuanzi_value_site_pv"></span>次</span>
+                  <span class="post-meta-divider">|</span>
+                  <span id="busuanzi_container_site_uv" style="font-size: 12px;display:none;">总访客：<span id="busuanzi_value_site_uv"></span>人</span>
+                </p> -->
             </div>
         </div>
     </div>
@@ -489,7 +503,46 @@
 </script>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
+<script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
+<script>
+  var APP_ID = 'erYGLgqXmQtCoFKaguuOPJhd';
+  var APP_KEY = 'yc5Jfn2fhX45zoupV8qPCi7o';
+  AV.init({
+    appId: APP_ID,
+    appKey: APP_KEY
+  });
+  // 显示次数
+  function showTime(Counter) {
+    var query = new AV.Query("Counter");
+    if ($(".leancloud_visitors").length > 0) {
+      var url = $(".leancloud_visitors").attr('id').trim();
+      // where field
+      query.equalTo("words", url);
+      // count
+      query.count().then(function (number) {
+        // There are number instances of MyClass where words equals url.
+        $(document.getElementById(url)).text(number ? number : '--');
+      }, function (error) {
+        // error is an instance of AVError.
+      });
+    }
+  }
+  // 追加pv
+  function addCount(Counter) {
+    var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'icafebolger.com';
+    var Counter = AV.Object.extend("Counter");
+    var query = new Counter;
+    query.save({
+      words: url
+    }).then(function (object) {
+    })
+  }
+  $(function () {
+    var Counter = AV.Object.extend("Counter");
+    addCount(Counter);
+    showTime(Counter);
+  });
+</script>
 <!--wechat title img-->
 <img class="wechat-title-img" src="/images/headImg.png">
 </body>
