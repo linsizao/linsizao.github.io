@@ -21,11 +21,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        hello-Webpack｜BerniLin 21&#39;s blog
+        Vue生命周期｜BerniLin 21&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="http://linsizao.github.io/2019/06/16/hello-Webpack/">
+    <link rel="canonical" href="http://linsizao.github.io/Vue生命周期/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -172,17 +172,17 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>hello-Webpack</h1>
+                    <h1>Vue生命周期</h1>
                     
                     <span class="meta">
                          作者 BerniLin 21
                         <span>
-                          日期 2019-06-16
+                          日期 2019-04-20
                          </span>
                     </span>
                     <div class="meta">
-                      <em>字数: 0</em>
-                      <!-- <span>阅读数量:<span id="/2019/06/16/hello-Webpack/" class="leancloud_visitors" data-flag-title="hello-Webpack"></span>次</span> -->
+                      <em>字数: 293</em>
+                      <!-- <span>阅读数量:<span id="/Vue生命周期/" class="leancloud_visitors" data-flag-title="Vue生命周期"></span>次</span> -->
                       <span>
                         <em class="meta archive-article-date">
                           阅读量:<em id="busuanzi_value_page_pv"></em>
@@ -190,8 +190,8 @@
                       </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/Tags/#webpack"
-                           title="webpack">webpack</a>
+                        <a class="tag" href="/Tags/#Vue"
+                           title="Vue">Vue</a>
                         
                     </div>
                 </div>
@@ -200,7 +200,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            hello-Webpack
+            Vue生命周期
         </span>
     </div>
 </header>
@@ -211,21 +211,24 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                
+                <blockquote><p>Vue / Vue 生命周期</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;hello&quot;&gt;</span><br><span class="line">    &lt;h1&gt;&#123;&#123;msg&#125;&#125;&lt;/h1&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &apos;HelloWorld&apos;,</span><br><span class="line">  data () &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      msg: &apos;Vue组件生命周期&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line">  beforeCreate()&#123;</span><br><span class="line">    console.log(&apos;创建前状态,el和data未初始化,在这里加个loding事件&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line">  created()&#123;</span><br><span class="line">    console.log(&apos;创建完毕状态，完成了data初始化,el还未初始化，结束loading，做初始化操作&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line">  beforeMount()&#123;</span><br><span class="line">    console.log(&apos;挂载前状态，完成了el和data的初始化,发起后端请求，拿到数据，配合路由钩子做一些事情&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line">  mounted()&#123;</span><br><span class="line">    console.log(&apos;挂载结束状态,完成了挂载&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line">  beforeUpdate()&#123;</span><br><span class="line">    console.log(&apos;更新前状态&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line">  updated()&#123;</span><br><span class="line">    console.log(&apos;更新完成状态,data里面的值被修改后，将会触发update的操作&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line">  beforeDestroy()&#123;</span><br><span class="line">    console.log(&apos;beforeDestro组件销毁前状态,页面组件推出前执行一些操作&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line">  destroyed()&#123;</span><br><span class="line">    console.log(&apos;组件销毁完成状态&apos;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- Add &quot;scoped&quot; attribute to limit CSS to this component only --&gt;</span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
                 <hr>
                 
 
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/2019/10/04/优雅地commit代码/" data-toggle="tooltip" data-placement="top"
-                           title="优雅地 commit 你的代码">&larr; 上一篇</a>
+                        <a href="/微信小程序生命周期/" data-toggle="tooltip" data-placement="top"
+                           title="微信小程序生命周期">&larr; 上一篇</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/2019/04/27/Vue-路由/" data-toggle="tooltip" data-placement="top"
-                           title="Vue Router">下一篇 &rarr;</a>
+                        <a href="/小王子/" data-toggle="tooltip" data-placement="top"
+                           title="小王子">下一篇 &rarr;</a>
                     </li>
                     
                 </ul>
@@ -266,8 +269,8 @@
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/Tags/#webpack"
-                           title="webpack">webpack</a>
+                        <a class="tag" href="/Tags/#Vue"
+                           title="Vue">Vue</a>
                         
                     </div>
                 </section>

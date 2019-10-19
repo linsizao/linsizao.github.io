@@ -21,11 +21,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        微信小程序生命周期｜BerniLin 21&#39;s blog
+        浏览器存储｜BerniLin 21&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="http://linsizao.github.io/2019/04/20/微信小程序生命周期/">
+    <link rel="canonical" href="http://linsizao.github.io/浏览器存储/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -172,17 +172,17 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>微信小程序生命周期</h1>
+                    <h1>浏览器存储</h1>
                     
                     <span class="meta">
                          作者 BerniLin 21
                         <span>
-                          日期 2019-04-20
+                          日期 2019-10-05
                          </span>
                     </span>
                     <div class="meta">
-                      <em>字数: 223</em>
-                      <!-- <span>阅读数量:<span id="/2019/04/20/微信小程序生命周期/" class="leancloud_visitors" data-flag-title="微信小程序生命周期"></span>次</span> -->
+                      <em>字数: 1k</em>
+                      <!-- <span>阅读数量:<span id="/浏览器存储/" class="leancloud_visitors" data-flag-title="浏览器存储"></span>次</span> -->
                       <span>
                         <em class="meta archive-article-date">
                           阅读量:<em id="busuanzi_value_page_pv"></em>
@@ -190,8 +190,8 @@
                       </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/Tags/#微信小程序"
-                           title="微信小程序">微信小程序</a>
+                        <a class="tag" href="/Tags/#浏览器"
+                           title="浏览器">浏览器</a>
                         
                     </div>
                 </div>
@@ -200,7 +200,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            微信小程序生命周期
+            浏览器存储
         </span>
     </div>
 </header>
@@ -211,24 +211,56 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <blockquote><p>小程序 / 小程序生命周期</p>
+                <blockquote><p>浏览器 / 浏览器存储</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">const app = getApp()</span><br><span class="line"></span><br><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line">  onLanch:function() &#123;</span><br><span class="line">    console.log(&apos;当小程序初始化完成时，会触发onLanch,全局只触发一次&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line">  onLoad: function () &#123;</span><br><span class="line">    console.log(&apos;页面加载,一个页面只会调用一次,页面返回不会调用&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line">  onShow:function () &#123;</span><br><span class="line">    console.log(&apos;页面显示,每次打开页面都会调用一次，页面返回会再次调用&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line">  onReady:function() &#123;</span><br><span class="line">    console.log(&apos;页面初次渲染完成，一个页面只会调用一次,代表页面已经准备妥当，可以和视图层进行交互。&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line">  onHide:function() &#123;</span><br><span class="line">    console.log(&apos;页面隐藏时候调用&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line">  onUnload:function()&#123;</span><br><span class="line">    console.log(&apos;页面被卸载的时候调用&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line">  onError:function() &#123;</span><br><span class="line">    console.log(&apos;当小程序发生脚本错误,或者api调用失败时，会触发onError函数。&apos;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>在客户端(浏览器端)存储数据有诸多益处，最主要的一点是能快速访问(网页)数据</p>
+<h2 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h2><p>Cookie指某些网站为了辨别用户身份而储存在用户本地终端上的数据(通常经过加密)。 cookie是服务端生成，客户端进行维护和存储。</p>
+<h3 id="cookie-的基本-CRUD-操作"><a href="#cookie-的基本-CRUD-操作" class="headerlink" title="cookie 的基本 CRUD 操作"></a>cookie 的基本 CRUD 操作</h3><p>cookie 以键值对形式存在</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 通过下面的语法，我们可以创建，读取，更新和删除 cookies:</span><br><span class="line">// Create</span><br><span class="line">document.cookie = &quot;user_name=Ire Aderinokun&quot;;  </span><br><span class="line">document.cookie = &quot;user_age=25;max-age=31536000;secure&quot;;</span><br><span class="line"></span><br><span class="line">// Read (All)</span><br><span class="line">console.log( document.cookie );</span><br><span class="line"></span><br><span class="line">// Update</span><br><span class="line">document.cookie = &quot;user_age=24;max-age=31536000;secure&quot;; </span><br><span class="line"></span><br><span class="line">// Delete</span><br><span class="line">document.cookie = &quot;user_name=Ire Aderinokun;expires=Thu, 01 Jan 1970 00:00:01 GMT&quot;;</span><br></pre></td></tr></table></figure>
+<h3 id="cookie-的优点"><a href="#cookie-的优点" class="headerlink" title="cookie 的优点"></a>cookie 的优点</h3><ul>
+<li>能用于和服务端通信</li>
+<li>当 cookie 快要自动过期时，我们可以重新设置而不是删除</li>
+</ul>
+<h3 id="cookie-的缺陷"><a href="#cookie-的缺陷" class="headerlink" title="cookie 的缺陷"></a>cookie 的缺陷</h3><ul>
+<li>增加了文档传输的负载（比如我们仅是请求一张图片，我们也要携带一个 cookie 跑来跑去）</li>
+<li>只能存储少量的数据（大小限制在4KB左右）</li>
+<li>只能存储字符串</li>
+<li>潜在的安全问题<br>ps: 这些缺陷都在 Web Storage API 中有所改善</li>
+</ul>
+<h3 id="cookie-操作事件的封装"><a href="#cookie-操作事件的封装" class="headerlink" title="cookie 操作事件的封装"></a>cookie 操作事件的封装</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//获取cookie</span><br><span class="line">export function getCookie(name) &#123;</span><br><span class="line">  var arr, reg = new RegExp(&quot;(^| )&quot; + name + &quot;=([^;]*)(;|$)&quot;);</span><br><span class="line">  if (arr = document.cookie.match(reg))</span><br><span class="line">    return (arr[2]);</span><br><span class="line">  else</span><br><span class="line">    return null;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//设置cookie,增加到vue实例方便全局调用</span><br><span class="line">export function setCookie(key, value, expiredays) &#123;</span><br><span class="line">  var exdate = new Date();</span><br><span class="line">  exdate.setDate(exdate.getDate() + expiredays);</span><br><span class="line">  document.cookie = key + &quot;=&quot; + escape(value) + ((expiredays == null) ? &quot;&quot; : &quot;;expires=&quot; + exdate.toGMTString());</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">//删除cookie</span><br><span class="line">export function delCookie(name) &#123;</span><br><span class="line">  var exp = new Date();</span><br><span class="line">  exp.setTime(exp.getTime() - 1);</span><br><span class="line">  var cval = getCookie(name);</span><br><span class="line">  if (cval != null)</span><br><span class="line">    document.cookie = name + &quot;=&quot; + cval + &quot;;expires=&quot; + exp.toGMTString();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="localStorage"><a href="#localStorage" class="headerlink" title="localStorage"></a>localStorage</h2><p>localStorage 提供了更直观和安全的API来存储简单的数据，可视为替代 Cookies 的一种解决方案。</p>
+<p>localStorage 只能存储字符串，但是它也是可以存储字符串化的JSON数据。这就意味着，localStorage 能比 cookies 存储更复杂的数据。</p>
+<h3 id="localStorage-的-基本-CRUD-操作"><a href="#localStorage-的-基本-CRUD-操作" class="headerlink" title="localStorage 的 基本 CRUD 操作"></a>localStorage 的 基本 CRUD 操作</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">通过下面的语法，我们可以创建，读取，更新和删除 localStorage:</span><br><span class="line">// Create</span><br><span class="line">const user = &#123; name: &apos;Ire Aderinokun&apos;, age: 25 &#125;  </span><br><span class="line">localStorage.setItem(&apos;user&apos;, JSON.stringify(user));</span><br><span class="line"></span><br><span class="line">// Read (Single)</span><br><span class="line">console.log( JSON.parse(localStorage.getItem(&apos;user&apos;)) ) </span><br><span class="line"></span><br><span class="line">// Update</span><br><span class="line">const updatedUser = &#123; name: &apos;Ire Aderinokun&apos;, age: 24 &#125;  </span><br><span class="line">localStorage.setItem(&apos;user&apos;, JSON.stringify(updatedUser));</span><br><span class="line"></span><br><span class="line">// Delete</span><br><span class="line">localStorage.removeItem(&apos;user&apos;);</span><br></pre></td></tr></table></figure>
+<h3 id="LocalStorage-的优点"><a href="#LocalStorage-的优点" class="headerlink" title="LocalStorage 的优点"></a>LocalStorage 的优点</h3><ul>
+<li>保存的数据长期存在，可以用它来存储一些内容稳定的资源。</li>
+<li>仅在客户端使用，不和服务端进行通信</li>
+<li>其提供了更直观地接口来存储数据</li>
+<li>能存储更多数据（大小为5M左右）</li>
+<li>更安全</li>
+</ul>
+<h2 id="sessionStorage"><a href="#sessionStorage" class="headerlink" title="sessionStorage"></a>sessionStorage</h2><p>sessionStorage 和 LocalStorage 非常类似，区别是 sessionStorage 只存储当前会话页(tab页)的数据，一旦用户关闭当前页或者浏览器，数据就自动被清除掉了</p>
+<h3 id="sessionStorage-的-基本CRUD-操作"><a href="#sessionStorage-的-基本CRUD-操作" class="headerlink" title="sessionStorage 的 基本CRUD 操作"></a>sessionStorage 的 基本CRUD 操作</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">通过下面的语法，我们可以创建，读取，更新和删除 Session Storage:</span><br><span class="line"></span><br><span class="line">// Create</span><br><span class="line">const user = &#123; name: &apos;Ire Aderinokun&apos;, age: 25 &#125;  </span><br><span class="line">sessionStorage.setItem(&apos;user&apos;, JSON.stringify(user));</span><br><span class="line"></span><br><span class="line">// Read (Single)</span><br><span class="line">console.log( JSON.parse(sessionStorage.getItem(&apos;user&apos;)) ) </span><br><span class="line"></span><br><span class="line">// Update</span><br><span class="line">const updatedUser = &#123; name: &apos;Ire Aderinokun&apos;, age: 24 &#125;  </span><br><span class="line">sessionStorage.setItem(&apos;user&apos;, JSON.stringify(updatedUser));</span><br><span class="line"></span><br><span class="line">// Delete</span><br><span class="line">sessionStorage.removeItem(&apos;user&apos;);</span><br></pre></td></tr></table></figure>
+<h2 id="indexedDB"><a href="#indexedDB" class="headerlink" title="indexedDB"></a>indexedDB</h2><p>用于客户端存储大量结构化数据(包括文件和blobs)</p>
+<h3 id="indexedDB的特点"><a href="#indexedDB的特点" class="headerlink" title="indexedDB的特点"></a>indexedDB的特点</h3><ul>
+<li>键值对储存，所有类型的数据都可以直接存入</li>
+<li>异步读写（LocalStorage 是同步）</li>
+<li>支持事务，只要有一步失败，整个事务就都取消，数据库回滚到事务发生之前的状态</li>
+<li>同源限制，只能访问自身域名下的数据库，而不能访问跨域的数据库</li>
+<li>储存空间大，无上限</li>
+<li>支持二进制储存</li>
+</ul>
+<h3 id="indexedDB-的常见操作"><a href="#indexedDB-的常见操作" class="headerlink" title="indexedDB 的常见操作"></a>indexedDB 的常见操作</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 建立打开indexedDB</span><br><span class="line">window.indexedDB.open(&quot;name&quot;)</span><br><span class="line"></span><br><span class="line">// 关闭</span><br><span class="line">name.close()</span><br><span class="line"></span><br><span class="line">// 删除</span><br><span class="line">indexedDB.deleteDatabase(name)</span><br><span class="line"></span><br><span class="line">// for example</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  function openDB(name)&#123;</span><br><span class="line">    var request=window.indexedDB.open(name)//建立打开IndexedDB</span><br><span class="line">    request.onerror=function (e)&#123;</span><br><span class="line">      console.log(&apos;open indexdb error&apos;)</span><br><span class="line">    &#125;</span><br><span class="line">    request.onsuccess=function (e)&#123;</span><br><span class="line">      myDB.db=e.target.result//这是一个 IDBDatabase对象，这就是IndexedDB对象</span><br><span class="line">      console.log(myDB.db)//此处就可以获取到db实例</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  var myDB=&#123;</span><br><span class="line">    name:&apos;testDB&apos;,</span><br><span class="line">    version:&apos;1&apos;,</span><br><span class="line">    db:null</span><br><span class="line">  &#125;</span><br><span class="line">  openDB(myDB.name)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="WebStorage、cookie-和-indexedDB之间的区别"><a href="#WebStorage、cookie-和-indexedDB之间的区别" class="headerlink" title="WebStorage、cookie 和 indexedDB之间的区别"></a>WebStorage、cookie 和 indexedDB之间的区别</h2><p><img src="/images/storage.png" alt="效果图"></p>
 
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2019/04/27/Vue-路由/" data-toggle="tooltip" data-placement="top"
-                           title="Vue Router">&larr; 上一篇</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2019/04/20/Vue生命周期/" data-toggle="tooltip" data-placement="top"
-                           title="Vue生命周期">下一篇 &rarr;</a>
+                        <a href="/优雅地commit代码/" data-toggle="tooltip" data-placement="top"
+                           title="优雅地 commit 你的代码">下一篇 &rarr;</a>
                     </li>
                     
                 </ul>
@@ -247,7 +279,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#cookie"><span class="toc-text">cookie</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie-的基本-CRUD-操作"><span class="toc-text">cookie 的基本 CRUD 操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie-的优点"><span class="toc-text">cookie 的优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie-的缺陷"><span class="toc-text">cookie 的缺陷</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie-操作事件的封装"><span class="toc-text">cookie 操作事件的封装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#localStorage"><span class="toc-text">localStorage</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#localStorage-的-基本-CRUD-操作"><span class="toc-text">localStorage 的 基本 CRUD 操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LocalStorage-的优点"><span class="toc-text">LocalStorage 的优点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sessionStorage"><span class="toc-text">sessionStorage</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sessionStorage-的-基本CRUD-操作"><span class="toc-text">sessionStorage 的 基本CRUD 操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#indexedDB"><span class="toc-text">indexedDB</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#indexedDB的特点"><span class="toc-text">indexedDB的特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#indexedDB-的常见操作"><span class="toc-text">indexedDB 的常见操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WebStorage、cookie-和-indexedDB之间的区别"><span class="toc-text">WebStorage、cookie 和 indexedDB之间的区别</span></a></li></ol>
                 </div>
             </div>
         </div>
@@ -269,8 +301,8 @@
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/Tags/#微信小程序"
-                           title="微信小程序">微信小程序</a>
+                        <a class="tag" href="/Tags/#浏览器"
+                           title="浏览器">浏览器</a>
                         
                     </div>
                 </section>
