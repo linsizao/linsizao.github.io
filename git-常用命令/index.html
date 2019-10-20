@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>BerniLin 21's blog</title>
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="linsizao在 Github 上的个人博客">
+    <meta name="keyword" content>
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <meta name="baidu-site-verification" content="0Uwn770VAZ">
+    <meta name="google-site-verification" content="6cScDfvGQVAGczMjG9T9PeDXoMFR7-3mmvLLM40XfQE">
+    <link rel="shortcut icon" href="/images/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="BerniLin 21" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        git 常用命令｜BerniLin 21&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="http://linsizao.gitee.io/git-常用命令/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        /* background-image: url('bg10.jpg') */
+        
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    BerniLin 21
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/Resume/">Resume</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/Tags/">Tags</a>
+                        </li>
+							
+						
+                    
+                        
+							
+								
+							
+						
+                    
+					
+					
+						<li>
+							<a href="/about">About</a>
+						</li>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="undefined/images/bg1.png">
+
+
+<style>
+    
+    /* header.intro-header {
+        background-image: url('/images/bg1.png?imageView2/1/w/1400/h/400/interlace/1/q/90')
+    } */
+    .intro-header>.container{
+        background-image: url('/images/bg1.png?imageView2/1/w/1400/h/400/interlace/1/q/90')
+
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>git 常用命令</h1>
+                    
+                    <span class="meta">
+                         作者 BerniLin 21
+                        <span>
+                          日期 2019-10-19
+                         </span>
+                    </span>
+                    <div class="meta">
+                      <em>字数: 1.6k</em>
+                      <span>
+                        <em class="meta archive-article-date">
+                          阅读量:<em id="busuanzi_value_page_pv"></em>
+                        </em>
+                      </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/Tags/#git"
+                           title="git">git</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            git 常用命令
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <blockquote><p>git / git 命令</p>
+</blockquote>
+<p>上手git有一段时间，这里稍稍对一些常用的 git 的命令进行简单的说明。。。</p>
+<h2 id="初始化创建-git-仓库"><a href="#初始化创建-git-仓库" class="headerlink" title="初始化创建 git 仓库"></a>初始化创建 git 仓库</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+<h2 id="展示帮助信息"><a href="#展示帮助信息" class="headerlink" title="展示帮助信息"></a>展示帮助信息</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git help -g</span><br></pre></td></tr></table></figure>
+<h2 id="克隆"><a href="#克隆" class="headerlink" title="克隆"></a>克隆</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone git@github.com:.....git // clone git 仓库</span><br><span class="line">git clone -b &lt;branch-name&gt; --single-branch git@github.com:.....git  // clone 下来指定的单一</span><br><span class="line">分支</span><br><span class="line">git clone --depth=1 git@github.com:.....git //  clone 最新一次提交</span><br></pre></td></tr></table></figure>
+<h2 id="暂存"><a href="#暂存" class="headerlink" title="暂存"></a>暂存</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add </span><br><span class="line">// git add . 暂存全部修改</span><br></pre></td></tr></table></figure>
+<h2 id="提交到本地仓库"><a href="#提交到本地仓库" class="headerlink" title="提交到本地仓库"></a>提交到本地仓库</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git commit -m &apos;some remark&apos;// 带描述提交</span><br><span class="line">git commit --amend  // 修改上一个 commit 的描述</span><br><span class="line">git commit --amend --author=&apos;Author Name email@address.com&gt;&apos;  修改作者名</span><br></pre></td></tr></table></figure>
+<p>重设第一个 commit<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git update-ref -d HEAD</span><br></pre></td></tr></table></figure></p>
+<h2 id="查看-commit-记录"><a href="#查看-commit-记录" class="headerlink" title="查看 commit 记录"></a>查看 commit 记录</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git log</span><br><span class="line">git log --pretty=oneline // 精简显示</span><br><span class="line">git log --graph //  查看分支合并图</span><br><span class="line">git log Branch1 ^Branch2  commit 历史中显示 Branch1 有的，但是 Branch2 没有 commit</span><br></pre></td></tr></table></figure>
+<h2 id="拉取代码"><a href="#拉取代码" class="headerlink" title="拉取代码"></a>拉取代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git pull</span><br><span class="line">git fetch //  是从远程获取最新版本到本地，不会自动merge</span><br><span class="line">git fetch origin pull/&lt;id&gt;/head:&lt;branch-name&gt; //  从远程仓库根据 ID，拉下某一状态，到本地分支</span><br></pre></td></tr></table></figure>
+<h2 id="展示内容"><a href="#展示内容" class="headerlink" title="展示内容"></a>展示内容</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git show &lt;branch-name&gt;:&lt;file-name&gt;  //  展示任意分支某一文件的内容</span><br><span class="line">git show &lt;tag-name&gt; //  展示某一tag内容</span><br></pre></td></tr></table></figure>
+<h2 id="显示文件"><a href="#显示文件" class="headerlink" title="显示文件"></a>显示文件</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git ls-files -t  展示所有 tracked 的文件</span><br><span class="line">git ls-files --others  展示所有 untracked 的文件</span><br></pre></td></tr></table></figure>
+<h2 id="查看文件状态"><a href="#查看文件状态" class="headerlink" title="查看文件状态"></a>查看文件状态</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git status  //  查看所有文件状态</span><br><span class="line">git status [filename] //  查看指定文件状态</span><br><span class="line">git status --ignored  //  展示忽略的文件</span><br><span class="line">git reflog  显示本地更新过 HEAD 的 git 命令记录</span><br></pre></td></tr></table></figure>
+<h2 id="展示不同"><a href="#展示不同" class="headerlink" title="展示不同"></a>展示不同</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git diff  // 输出工作区和暂存区的 different</span><br><span class="line">git diff &lt;commit-id&gt; &lt;commit-id&gt;  //  展示本地仓库中任意两个 commit 之间的文件变动</span><br><span class="line">git diff --cached //  暂存区和本地最近的版本 (commit) 的 different</span><br><span class="line">git diff HEAD //  工作区、暂存区 和本地最近的版本 (commit) 的 different</span><br><span class="line">git diff --word-diff  //  详细展示一行中的修改</span><br></pre></td></tr></table></figure>
+<h2 id="以新增一个-commit-的方式还原某一个-commit-的修改"><a href="#以新增一个-commit-的方式还原某一个-commit-的修改" class="headerlink" title="以新增一个 commit 的方式还原某一个 commit 的修改"></a>以新增一个 commit 的方式还原某一个 commit 的修改</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git revert &lt;commit-id&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="回退"><a href="#回退" class="headerlink" title="回退"></a>回退</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git reset --hard HEAD^  //  回退上一版本，上上版本 HEAD^^</span><br><span class="line">git reset –mixed HEAD^  //  回退至上个版本，它将重置 HEAD 到另外一个 commit ,并且重置暂存区以便和HEAD相匹配，但是也到此为止。工作区不会被更改。</span><br><span class="line">git reset –soft HEAD~3  //  回退至三个版本之前，只回退了 commit 的信息，暂存区和工作区与回退之前保持一致。如果还要提交，直接commit即可</span><br><span class="line">git reset &lt;commit-id&gt; //  回退到指定 commit-id 的状态</span><br><span class="line">git reset –hard &lt;commit-id&gt; //  彻底回退到指定 commit-id 的状态，暂存区和工作区也会变为指定commit-id版本的内容</span><br></pre></td></tr></table></figure>
+<p>抛弃本地所有的修改，回到远程仓库的状态。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git fetch --all &amp;&amp; git reset --hard origin/master</span><br></pre></td></tr></table></figure></p>
+<h2 id="切换"><a href="#切换" class="headerlink" title="切换"></a>切换</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout &lt;branch-name&gt;  //  切换分支</span><br><span class="line">git checkout -  //  快速切换到上一个分支</span><br><span class="line">git checkout -b &lt;branch-name&gt;  //  创建并切换到本地分支</span><br><span class="line">git checkout -b &lt;branch-name&gt; origin/&lt;branch-name&gt;  //  从远程分支中创建并切换到本地分支</span><br><span class="line">git checkout --orphan &lt;branch-name&gt; //  新建并切换到新分支上，同时这个分支没有任何 commit</span><br><span class="line">git checkout -b branch_name tag_name  //  切回到某个标签</span><br></pre></td></tr></table></figure>
+<h2 id="放弃修改"><a href="#放弃修改" class="headerlink" title="放弃修改"></a>放弃修改</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout &lt;file-name&gt;  //  放弃工作区的修改，.放弃所有修改</span><br></pre></td></tr></table></figure>
+<p>恢复删除的文件<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git rev-list -n 1 HEAD -- &lt;file_path&gt; #得到 deleting_commit</span><br><span class="line">git checkout &lt;deleting_commit&gt;^ -- &lt;file_path&gt; #回到删除文件 deleting_commit 之前的状态</span><br></pre></td></tr></table></figure></p>
+<h2 id="把-A-分支的某一个-commit，放到-B-分支上"><a href="#把-A-分支的某一个-commit，放到-B-分支上" class="headerlink" title="把 A 分支的某一个 commit，放到 B 分支上"></a>把 A 分支的某一个 commit，放到 B 分支上</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout &lt;branch-name&gt; &amp;&amp; git cherry-pick &lt;commit-id&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git rm test.txt</span><br></pre></td></tr></table></figure>
+<h2 id="本地分支"><a href="#本地分支" class="headerlink" title="本地分支"></a>本地分支</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git branch  //  看当前分支（本地）</span><br><span class="line">git branch &lt;branch&gt;  //  创建分支（本地）</span><br><span class="line">git branch -d &lt;branch&gt; //  删除分支</span><br><span class="line">git branch -a //  列出本地和远程分支</span><br><span class="line">git branch -r //  列出所有远程分支  -r 参数相当于：remote</span><br><span class="line">git branch -vv  //  展示本地分支关联远程仓库的情况</span><br><span class="line">git branch -m &lt;new-branch-name&gt; //  重命名本地分支</span><br><span class="line">git branch -u origin/mybranch //  关联远程分支</span><br><span class="line">git branch --set-upstream branch-name origin/branch-name  //  建立本地分支和远程分支的关联</span><br></pre></td></tr></table></figure>
+<h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git remote  //  列出所有远程仓库</span><br><span class="line">git remote add origin git@github.....git  //  添加远程仓库</span><br><span class="line">git remote set-url origin &lt;URL&gt; //  修改远程仓库的 url</span><br><span class="line">git remote show origin  //  查看远程分支和本地分支的对应关系</span><br><span class="line">git remote prune origin //  远程删除了分支本地也想删除</span><br></pre></td></tr></table></figure>
+<h2 id="推送"><a href="#推送" class="headerlink" title="推送"></a>推送</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push</span><br><span class="line">git push -u origin master //  推送同时关联远程</span><br><span class="line">git push -f &lt;remote-name&gt; &lt;branch-name&gt; //  强制推送</span><br><span class="line">git push origin --delete &lt;remote-branchname&gt;  //  删除远程分支</span><br><span class="line">git push origin :&lt;remote-branchname&gt;  //  删除远程分支</span><br></pre></td></tr></table></figure>
+<h2 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git merge &lt;branch&gt; //  将目标分支合并到当前分支</span><br></pre></td></tr></table></figure>
+<h2 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git stash //  存储当前的修改</span><br><span class="line">git stash -u  //  保存当前状态，包括 untracked 的文件</span><br><span class="line">git stash list  //  展示所有 stash</span><br><span class="line">git stash apply &lt;stash@&#123;n&#125;&gt; //  回到某个 stash 的状态</span><br><span class="line">git stash pop  //  回到最后一个 stash 的状态，并删除这个 stash</span><br><span class="line">git stash clear //  删除所有的 stash</span><br><span class="line">git checkout &lt;stash@&#123;n&#125;&gt; -- &lt;file-path&gt; //  从 stash 中拿出某个文件的修改</span><br></pre></td></tr></table></figure>
+<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git tag //  查看所有标签</span><br><span class="line">git describe --tags --abbrev=0  //  </span><br><span class="line">git tag -ln //  查看标签详细信息</span><br><span class="line">git tag &lt;tag-name&gt;  //  创建标签，默认打在最近一次 commit 上</span><br><span class="line">git tag -a &lt;tag-name&gt; -m &quot;v1.0 发布(描述)&quot; &lt;commit-id&gt;  //  创建标签并打在指定 commit 上</span><br><span class="line">git push origin &lt;tag-name&gt;  //  推送标签到远程仓库</span><br><span class="line">git push origin --tags  //  一次性推送所有标签，同步到远程仓库</span><br><span class="line">git tag -d &lt;tag-name&gt; //  删除本地标签</span><br><span class="line">git push origin :refs/tags/&lt;tag-name&gt; //  删除远程标签，需先删除本地标签</span><br><span class="line">git checkout -b &lt;branch-name&gt; &lt;tag-name&gt;  //  切回到某个标签</span><br></pre></td></tr></table></figure>
+<h2 id="查看某段代码是谁写的"><a href="#查看某段代码是谁写的" class="headerlink" title="查看某段代码是谁写的"></a>查看某段代码是谁写的</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git blame &lt;file-name&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="给-git-命令起别名"><a href="#给-git-命令起别名" class="headerlink" title="给 git 命令起别名"></a>给 git 命令起别名</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global alias.&lt;handle&gt; &lt;command&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="清除-gitignore-文件中记录的文件"><a href="#清除-gitignore-文件中记录的文件" class="headerlink" title="清除 gitignore 文件中记录的文件"></a>清除 gitignore 文件中记录的文件</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clean -X -f</span><br></pre></td></tr></table></figure>
+<h2 id="删除全局设置"><a href="#删除全局设置" class="headerlink" title="删除全局设置"></a>删除全局设置</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global --unset &lt;entry-name&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><ul>
+<li>官方：  <a href="https://git-scm.com/" target="_blank" rel="noopener">https://git-scm.com/</a></li>
+<li>廖雪峰  <a href="https://www.liaoxuefeng.com/wiki/896043488029600" target="_blank" rel="noopener">https://www.liaoxuefeng.com/wiki/896043488029600</a></li>
+<li>简易教程  <a href="https://www.bootcss.com/p/git-guide/" target="_blank" rel="noopener">https://www.bootcss.com/p/git-guide/</a></li>
+</ul>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/浏览器存储/" data-toggle="tooltip" data-placement="top"
+                           title="浏览器存储">下一篇 &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化创建-git-仓库"><span class="toc-text">初始化创建 git 仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#展示帮助信息"><span class="toc-text">展示帮助信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#克隆"><span class="toc-text">克隆</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#暂存"><span class="toc-text">暂存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提交到本地仓库"><span class="toc-text">提交到本地仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看-commit-记录"><span class="toc-text">查看 commit 记录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拉取代码"><span class="toc-text">拉取代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#展示内容"><span class="toc-text">展示内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#显示文件"><span class="toc-text">显示文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看文件状态"><span class="toc-text">查看文件状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#展示不同"><span class="toc-text">展示不同</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#以新增一个-commit-的方式还原某一个-commit-的修改"><span class="toc-text">以新增一个 commit 的方式还原某一个 commit 的修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#回退"><span class="toc-text">回退</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#切换"><span class="toc-text">切换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#放弃修改"><span class="toc-text">放弃修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#把-A-分支的某一个-commit，放到-B-分支上"><span class="toc-text">把 A 分支的某一个 commit，放到 B 分支上</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除文件"><span class="toc-text">删除文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#本地分支"><span class="toc-text">本地分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#远程仓库"><span class="toc-text">远程仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#推送"><span class="toc-text">推送</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#合并"><span class="toc-text">合并</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#存储"><span class="toc-text">存储</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#标签"><span class="toc-text">标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看某段代码是谁写的"><span class="toc-text">查看某段代码是谁写的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#给-git-命令起别名"><span class="toc-text">给 git 命令起别名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#清除-gitignore-文件中记录的文件"><span class="toc-text">清除 gitignore 文件中记录的文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除全局设置"><span class="toc-text">删除全局设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文档"><span class="toc-text">参考文档</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/Tags/#git"
+                           title="git">git</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <div style="margin-top: 20px;">
+                    <h5 class="text-center">FRIENDS</h5>
+                    <ul class="list-inline text-center">
+                        
+                        <li><a href="http://czero.cn">czero</a></li>
+                        
+                        <li><a href="http://shekang.me">shekang</a></li>
+                        
+                        <li><a href="http://burqee.com">MuMu</a></li>
+                        
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+
+                        
+                        
+                        <li>
+                          <a target="_blank" href="https://twitter.com/linsizao">
+                            <span class="fa-stack fa-lg">
+                              <i class="fa fa-circle fa-stack-2x"></i>
+                              <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                          </a>
+                        </li>
+                        
+                        
+                        <li>
+                          <a target="_blank" href="https://www.zhihu.com/people/BerinLin21">
+                            <span class="fa-stack fa-lg">
+                              <i class="fa fa-circle fa-stack-2x"></i>
+                              <i class="fa fa-stack-1x fa-inverse">知</i>
+                            </span>
+                          </a>
+                        </li>
+                        
+                        
+                        
+                        <li>
+                          <a target="_blank" href="http://weibo.com/6740509319">
+                            <span class="fa-stack fa-lg">
+                              <i class="fa fa-circle fa-stack-2x"></i>
+                              <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                          </a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li>
+                          <a target="_blank" href="https://github.com/linsizao">
+                            <span class="fa-stack fa-lg">
+                              <i class="fa fa-circle fa-stack-2x"></i>
+                              <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                          </a>
+                        </li>
+                        
+                        
+                        
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; BerniLin 21 2019
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">MIA SAN MIA</span>
+                </p>
+                <!-- <p>
+                  <span id="busuanzi_container_site_pv"" style=" font-size: 12px;display:none;">总访问量：<span id="busuanzi_value_site_pv"></span>次</span>
+                  <span class="post-meta-divider">|</span>
+                  <span id="busuanzi_container_site_uv" style="font-size: 12px;display:none;">总访客：<span id="busuanzi_value_site_uv"></span>人</span>
+                </p> -->
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://linsizao.gitee.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    var _baId = 'e2b919b5daa739e632cb9c6a177410d2';
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
+<script>
+  var APP_ID = 'erYGLgqXmQtCoFKaguuOPJhd';
+  var APP_KEY = 'yc5Jfn2fhX45zoupV8qPCi7o';
+  AV.init({
+    appId: APP_ID,
+    appKey: APP_KEY
+  });
+  // 显示次数
+  function showTime(Counter) {
+    var query = new AV.Query("Counter");
+    if ($(".leancloud_visitors").length > 0) {
+      var url = $(".leancloud_visitors").attr('id').trim();
+      // where field
+      query.equalTo("words", url);
+      // count
+      query.count().then(function (number) {
+        // There are number instances of MyClass where words equals url.
+        $(document.getElementById(url)).text(number ? number : '--');
+      }, function (error) {
+        // error is an instance of AVError.
+      });
+    }
+  }
+  // 追加pv
+  function addCount(Counter) {
+    var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'icafebolger.com';
+    var Counter = AV.Object.extend("Counter");
+    var query = new Counter;
+    query.save({
+      words: url
+    }).then(function (object) {
+    })
+  }
+  $(function () {
+    var Counter = AV.Object.extend("Counter");
+    addCount(Counter);
+    showTime(Counter);
+  });
+</script>
+<!--wechat title img-->
+<img class="wechat-title-img" src="/images/headImg.png">
+</body>
+
+</html>
