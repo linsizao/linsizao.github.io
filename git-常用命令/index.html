@@ -90,15 +90,15 @@
                     
                         
 							
-                        <li>
-                            <a href="/Tags/">Tags</a>
-                        </li>
+								
 							
 						
                     
                         
 							
-								
+                        <li>
+                            <a href="/Tags/">Tags</a>
+                        </li>
 							
 						
                     
@@ -232,7 +232,7 @@
 <p>恢复删除的文件<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git rev-list -n 1 HEAD -- &lt;file_path&gt; #得到 deleting_commit</span><br><span class="line">git checkout &lt;deleting_commit&gt;^ -- &lt;file_path&gt; #回到删除文件 deleting_commit 之前的状态</span><br></pre></td></tr></table></figure></p>
 <h2 id="把-A-分支的某一个-commit，放到-B-分支上"><a href="#把-A-分支的某一个-commit，放到-B-分支上" class="headerlink" title="把 A 分支的某一个 commit，放到 B 分支上"></a>把 A 分支的某一个 commit，放到 B 分支上</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout &lt;branch-name&gt; &amp;&amp; git cherry-pick &lt;commit-id&gt;</span><br></pre></td></tr></table></figure>
 <h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git rm test.txt</span><br></pre></td></tr></table></figure>
-<h2 id="本地分支"><a href="#本地分支" class="headerlink" title="本地分支"></a>本地分支</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git branch  //  看当前分支（本地）</span><br><span class="line">git branch &lt;branch&gt;  //  创建分支（本地）</span><br><span class="line">git branch -d &lt;branch&gt; //  删除分支</span><br><span class="line">git branch -a //  列出本地和远程分支</span><br><span class="line">git branch -r //  列出所有远程分支  -r 参数相当于：remote</span><br><span class="line">git branch -vv  //  展示本地分支关联远程仓库的情况</span><br><span class="line">git branch -m &lt;new-branch-name&gt; //  重命名本地分支</span><br><span class="line">git branch -u origin/mybranch //  关联远程分支</span><br><span class="line">git branch --set-upstream branch-name origin/branch-name  //  建立本地分支和远程分支的关联</span><br></pre></td></tr></table></figure>
+<h2 id="本地分支"><a href="#本地分支" class="headerlink" title="本地分支"></a>本地分支</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git branch  //  看当前分支（本地）</span><br><span class="line">git branch &lt;branch&gt;  //  创建分支（本地）</span><br><span class="line">git branch -d &lt;branch&gt; //  删除分支</span><br><span class="line">git branch -a //  列出本地和远程分支</span><br><span class="line">git branch -r //  列出所有远程分支  -r 参数相当于：remote</span><br><span class="line">git branch -vv  //  展示本地分支关联远程仓库的情况</span><br><span class="line">git branch -m | -M &lt;old-branch-name&gt; &lt;new-branch-name&gt;  // 重命名分支，如果newbranch名字分支已经存在，则需要使用-M强制重命名，否则，使用-m进行重命名</span><br><span class="line">git branch -u origin/mybranch //  关联远程分支</span><br><span class="line">git branch --set-upstream branch-name origin/branch-name  //  建立本地分支和远程分支的关联</span><br></pre></td></tr></table></figure>
 <h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git remote  //  列出所有远程仓库</span><br><span class="line">git remote add origin git@github.....git  //  添加远程仓库</span><br><span class="line">git remote set-url origin &lt;URL&gt; //  修改远程仓库的 url</span><br><span class="line">git remote show origin  //  查看远程分支和本地分支的对应关系</span><br><span class="line">git remote prune origin //  远程删除了分支本地也想删除</span><br></pre></td></tr></table></figure>
 <h2 id="推送"><a href="#推送" class="headerlink" title="推送"></a>推送</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push</span><br><span class="line">git push -u origin master //  推送同时关联远程</span><br><span class="line">git push -f &lt;remote-name&gt; &lt;branch-name&gt; //  强制推送</span><br><span class="line">git push origin --delete &lt;remote-branchname&gt;  //  删除远程分支</span><br><span class="line">git push origin :&lt;remote-branchname&gt;  //  删除远程分支</span><br></pre></td></tr></table></figure>
 <h2 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git merge &lt;branch&gt; //  将目标分支合并到当前分支</span><br></pre></td></tr></table></figure>
