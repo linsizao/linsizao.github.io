@@ -20,11 +20,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        微信小程序生命周期｜BerniLin 21&#39;s blog
+        微信小程序授权登陆｜BerniLin 21&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="http://linsizao.gitee.io/微信小程序生命周期/">
+    <link rel="canonical" href="http://linsizao.gitee.io/微信小程序授权登陆/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -171,16 +171,16 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>微信小程序生命周期</h1>
+                    <h1>微信小程序授权登陆</h1>
                     
                     <span class="meta">
                          作者 BerniLin 21
                         <span>
-                          日期 2019-04-20
+                          日期 2019-11-03
                          </span>
                     </span>
                     <div class="meta">
-                      <em>字数: 223</em>
+                      <em>字数: 520</em>
                       <span>
                         <em class="meta archive-article-date">
                           阅读量:<em id="busuanzi_value_page_pv"></em>
@@ -198,7 +198,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            微信小程序生命周期
+            微信小程序授权登陆
         </span>
     </div>
 </header>
@@ -209,24 +209,30 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <blockquote><p>小程序 / 小程序生命周期</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">const app = getApp()</span><br><span class="line"></span><br><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line">  onLanch:function() &#123;</span><br><span class="line">    console.log(&apos;当小程序初始化完成时，会触发onLanch,全局只触发一次&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line">  onLoad: function () &#123;</span><br><span class="line">    console.log(&apos;页面加载,一个页面只会调用一次,页面返回不会调用&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line">  onShow:function () &#123;</span><br><span class="line">    console.log(&apos;页面显示,每次打开页面都会调用一次，页面返回会再次调用&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line">  onReady:function() &#123;</span><br><span class="line">    console.log(&apos;页面初次渲染完成，一个页面只会调用一次,代表页面已经准备妥当，可以和视图层进行交互。&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line">  onHide:function() &#123;</span><br><span class="line">    console.log(&apos;页面隐藏时候调用&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line">  onUnload:function()&#123;</span><br><span class="line">    console.log(&apos;页面被卸载的时候调用&apos;)</span><br><span class="line">  &#125;,</span><br><span class="line">  onError:function() &#123;</span><br><span class="line">    console.log(&apos;当小程序发生脚本错误,或者api调用失败时，会触发onError函数。&apos;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+                <h1 id="小程序登录"><a href="#小程序登录" class="headerlink" title="小程序登录"></a>小程序登录</h1><p>小程序可以通过微信官方提供的登录能力方便地获取微信提供的用户身份标识<br>微信小程序授权一般可以获取用户的 OpenID 、昵称、头像、用户所在省和市、性别</p>
+<h2 id="具体实现步骤（前端）"><a href="#具体实现步骤（前端）" class="headerlink" title="具体实现步骤（前端）"></a>具体实现步骤（前端）</h2><h3 id="首先引导用户点击授权按钮"><a href="#首先引导用户点击授权按钮" class="headerlink" title="首先引导用户点击授权按钮"></a>首先引导用户点击授权按钮</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;button open-type=&quot;getUserInfo&quot; bindgetuserinfo=&quot;bindGetUserInfo&quot;&gt;点击授权&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="编写bindGetUserInfo函数"><a href="#编写bindGetUserInfo函数" class="headerlink" title="编写bindGetUserInfo函数"></a>编写bindGetUserInfo函数</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bindGetUserInfo(res) &#123;</span><br><span class="line">    console.log(res);</span><br><span class="line">    if (res.detail.userInfo) &#123;</span><br><span class="line">      console.log(&quot;点击了同意授权&quot;);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      console.log(&quot;点击了拒绝授权&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="弹出授权框"><a href="#弹出授权框" class="headerlink" title="弹出授权框"></a>弹出授权框</h3><p><img src="/images/miniLogin2.jpg" alt="效果图"></p>
+<h3 id="点击允许会返回用户除了-OpenID-以外的基本信息"><a href="#点击允许会返回用户除了-OpenID-以外的基本信息" class="headerlink" title="点击允许会返回用户除了 OpenID 以外的基本信息"></a>点击允许会返回用户除了 OpenID 以外的基本信息</h3><p>在点击授后返回数据，（detail -&gt; userInfo）</p>
+<p><img src="/images/miniLogin3.jpg" alt="效果图"></p>
+<h3 id="调用-wx-login-函数获取用户-OpenID"><a href="#调用-wx-login-函数获取用户-OpenID" class="headerlink" title="调用 wx:login 函数获取用户 OpenID"></a>调用 wx:login 函数获取用户 OpenID</h3><p>调用 wx.login() 获取 临时登录凭证 code </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bindGetUserInfo(res) &#123;</span><br><span class="line">  let info = res;</span><br><span class="line">  if (info.detail.userInfo) &#123;</span><br><span class="line">    console.log(&quot;点击了同意授权&quot;);</span><br><span class="line">    wx.login(&#123;</span><br><span class="line">      success: function (res) &#123;</span><br><span class="line">        console.log(res);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    console.log(&quot;点击了拒绝授权&quot;);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bindGetUserInfo(res) &#123;</span><br><span class="line">    let info = res;</span><br><span class="line">    if (info.detail.userInfo) &#123; //  点击了同意授权</span><br><span class="line">      wx.login(&#123;</span><br><span class="line">        success: function (res) &#123;</span><br><span class="line">          if (res.code) &#123;</span><br><span class="line">            wx.request(&#123;</span><br><span class="line">              url: serviceURL + &apos;/login&apos;,</span><br><span class="line">              data: &#123;</span><br><span class="line">                code: res.code,</span><br><span class="line">                nickName: info.detail.userInfo.nickName,</span><br><span class="line">                city: info.detail.userInfo.city,</span><br><span class="line">                province: info.detail.userInfo.province,</span><br><span class="line">                avatarUrl: info.detail.userInfo.avatarUrl</span><br><span class="line">              &#125;,</span><br><span class="line">              header: &#123;</span><br><span class="line">                &apos;content-type&apos;: &apos;application/json&apos; // 默认值</span><br><span class="line">              &#125;,</span><br><span class="line">              success: function (res) &#123;</span><br><span class="line">                  var userinfo = &#123;&#125;;</span><br><span class="line">                  userinfo[&apos;id&apos;]=res.data.id;</span><br><span class="line">                  userinfo[&apos;nickName&apos;] = info.detail.userInfo.nickName;</span><br><span class="line">                  userinfo[&apos;avatarUrl&apos;] = info.detail.userInfo.avatarUrl;</span><br><span class="line">                  wx.setStorageSync(&apos;userinfo&apos;, userinfo)；                    </span><br><span class="line">              &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">          &#125; else &#123;</span><br><span class="line">            console.log(&quot;授权失败&quot;);</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;)</span><br><span class="line"> </span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      console.log(&quot;点击了拒绝授权&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="请求服务端后台，让后台请求微信再返回-OpenID-和session-key"><a href="#请求服务端后台，让后台请求微信再返回-OpenID-和session-key" class="headerlink" title="请求服务端后台，让后台请求微信再返回 OpenID 和session_key"></a>请求服务端后台，让后台请求微信再返回 OpenID 和session_key</h3><p>再用微信的本地缓存保存用户的基本信息。<br>之后开发者服务器可以根据用户标识来生成自定义登录态，用于后续业务逻辑中前后端交互时识别用户身份。</p>
+<h2 id="登录流程时序"><a href="#登录流程时序" class="headerlink" title="登录流程时序"></a>登录流程时序</h2><p><img src="/images/miniLogin1.jpg" alt="效果图"></p>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><ul>
+<li>微信小程序官方文档：  <a href="https://developers.weixin.qq.com/miniprogram/dev/framework/" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/framework/</a></li>
+</ul>
 
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/Vue-路由/" data-toggle="tooltip" data-placement="top"
-                           title="Vue Router">&larr; 上一篇</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/Vue生命周期/" data-toggle="tooltip" data-placement="top"
-                           title="Vue生命周期">下一篇 &rarr;</a>
+                        <a href="/git-常用命令/" data-toggle="tooltip" data-placement="top"
+                           title="git 常用命令">下一篇 &rarr;</a>
                     </li>
                     
                 </ul>
@@ -245,7 +251,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#小程序登录"><span class="toc-text">小程序登录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#具体实现步骤（前端）"><span class="toc-text">具体实现步骤（前端）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#首先引导用户点击授权按钮"><span class="toc-text">首先引导用户点击授权按钮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编写bindGetUserInfo函数"><span class="toc-text">编写bindGetUserInfo函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#弹出授权框"><span class="toc-text">弹出授权框</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#点击允许会返回用户除了-OpenID-以外的基本信息"><span class="toc-text">点击允许会返回用户除了 OpenID 以外的基本信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#调用-wx-login-函数获取用户-OpenID"><span class="toc-text">调用 wx:login 函数获取用户 OpenID</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#完整代码"><span class="toc-text">完整代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#请求服务端后台，让后台请求微信再返回-OpenID-和session-key"><span class="toc-text">请求服务端后台，让后台请求微信再返回 OpenID 和session_key</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#登录流程时序"><span class="toc-text">登录流程时序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文档"><span class="toc-text">参考文档</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
