@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://linsizao.gitee.io/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E8%8E%B7%E5%8F%96formId/</loc>
+    <lastmod>2019-11-08</lastmod>
+  </url>  <url>
+    <loc>http://linsizao.gitee.io/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</loc>
+    <lastmod>2019-11-08</lastmod>
+  </url>  <url>
     <loc>http://linsizao.gitee.io/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%8E%88%E6%9D%83%E7%99%BB%E9%99%86/</loc>
+    <lastmod>2019-11-08</lastmod>
+  </url>  <url>
+    <loc>http://linsizao.gitee.io/hello-hexo/</loc>
     <lastmod>2019-11-04</lastmod>
   </url>  <url>
     <loc>http://linsizao.gitee.io/git-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
@@ -22,16 +31,10 @@
     <loc>http://linsizao.gitee.io/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AD%98%E5%82%A8/</loc>
     <lastmod>2019-10-06</lastmod>
   </url>  <url>
-    <loc>http://linsizao.gitee.io/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</loc>
-    <lastmod>2019-10-06</lastmod>
-  </url>  <url>
     <loc>http://linsizao.gitee.io/%E5%86%99%E7%BB%99%E5%B9%B4%E8%BD%BB%E4%BA%BA%E7%9A%84%E7%AE%80%E6%98%8E%E5%9B%BD%E5%AD%A6%E5%B8%B8%E8%AF%86/</loc>
     <lastmod>2019-10-06</lastmod>
   </url>  <url>
     <loc>http://linsizao.gitee.io/Vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</loc>
-    <lastmod>2019-10-06</lastmod>
-  </url>  <url>
-    <loc>http://linsizao.gitee.io/hello-hexo/</loc>
     <lastmod>2019-10-06</lastmod>
   </url>  <url>
     <loc>http://linsizao.gitee.io/ChineseTest/</loc>

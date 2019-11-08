@@ -180,7 +180,7 @@
                          </span>
                     </span>
                     <div class="meta">
-                      <em>字数: 526</em>
+                      <em>字数: 534</em>
                       <span>
                         <em class="meta archive-article-date">
                           阅读量:<em id="busuanzi_value_page_pv"></em>
@@ -209,7 +209,9 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="小程序登录"><a href="#小程序登录" class="headerlink" title="小程序登录"></a>小程序登录</h1><p>小程序可以通过微信官方提供的登录能力方便地获取微信提供的用户身份标识<br>微信小程序授权一般可以获取用户的 OpenID 、昵称、头像、用户所在省和市、性别</p>
+                <blockquote><p>小程序 / 微信小程序</p>
+</blockquote>
+<h1 id="小程序登录"><a href="#小程序登录" class="headerlink" title="小程序登录"></a>小程序登录</h1><p>小程序可以通过微信官方提供的登录能力方便地获取微信提供的用户身份标识<br>微信小程序授权一般可以获取用户的 OpenID 、昵称、头像、用户所在省和市、性别</p>
 <h2 id="具体实现步骤（前端）"><a href="#具体实现步骤（前端）" class="headerlink" title="具体实现步骤（前端）"></a>具体实现步骤（前端）</h2><h3 id="1、首先引导用户点击授权按钮"><a href="#1、首先引导用户点击授权按钮" class="headerlink" title="1、首先引导用户点击授权按钮"></a>1、首先引导用户点击授权按钮</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;button open-type=&quot;getUserInfo&quot; bindgetuserinfo=&quot;bindGetUserInfo&quot;&gt;点击授权&lt;/button&gt;</span><br></pre></td></tr></table></figure>
 <h3 id="2、编写bindGetUserInfo函数"><a href="#2、编写bindGetUserInfo函数" class="headerlink" title="2、编写bindGetUserInfo函数"></a>2、编写bindGetUserInfo函数</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">bindGetUserInfo(res) &#123;</span><br><span class="line">    console.log(res);</span><br><span class="line">    if (res.detail.userInfo) &#123;</span><br><span class="line">      console.log(&quot;点击了同意授权&quot;);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      console.log(&quot;点击了拒绝授权&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="3、弹出授权框"><a href="#3、弹出授权框" class="headerlink" title="3、弹出授权框"></a>3、弹出授权框</h3><p><img src="/images/miniLogin2.jpg" alt="效果图"></p>
@@ -228,6 +230,11 @@
                 
 
                 <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/微信小程序获取formId/" data-toggle="tooltip" data-placement="top"
+                           title="微信小程序获取formId">&larr; 上一篇</a>
+                    </li>
                     
                     
                     <li class="next">

@@ -20,11 +20,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        BerniLin 21&#39;s blog
+        微信小程序获取formId｜BerniLin 21&#39;s blog
         
     </title>
 
-    <link rel="canonical" href="http://linsizao.gitee.io/tags/浏览器/">
+    <link rel="canonical" href="http://linsizao.gitee.io/微信小程序获取formId/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -46,7 +46,7 @@
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="" class="animated fadeIn">
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "false" data-istags="true
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
 " data-ishome = "false" >
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -146,214 +146,162 @@
 <!-- Main Content -->
 
 
-<!-- Page Header -->
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 visible-xs-block visible-sm-block">
-    <div class="row">
-        <header class="intro-header">
-            <div class="container">
-                <div class="site-heading text-center">
-                    <div class="about-me">
-                        <!--移动端头部显示-->
-                        <img src="/images/headImg.png"/>
-                        <h5><a href="/about/">BerniLin 21</a></h5>
-                        <p>醒来，读书，写长长的代码</p>
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="undefined/images/bg1.png">
+
+
+<style>
+    
+    /* header.intro-header {
+        background-image: url('/images/bg1.png?imageView2/1/w/1400/h/400/interlace/1/q/90')
+    } */
+    .intro-header>.container{
+        background-image: url('/images/bg1.png?imageView2/1/w/1400/h/400/interlace/1/q/90')
+
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>微信小程序获取formId</h1>
+                    
+                    <span class="meta">
+                         作者 BerniLin 21
+                        <span>
+                          日期 2019-11-08
+                         </span>
+                    </span>
+                    <div class="meta">
+                      <em>字数: 235</em>
+                      <span>
+                        <em class="meta archive-article-date">
+                          阅读量:<em id="busuanzi_value_page_pv"></em>
+                        </em>
+                      </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/Tags/#微信小程序"
+                           title="微信小程序">微信小程序</a>
+                        
                     </div>
                 </div>
             </div>
-        </header>
+        </div>
     </div>
-</div>
-<!-- Main Content -->
-<div class="container custom-haojen-container">
-    <!-- Post Container -->
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12 col-xs-12 post-container">
-            <!-- Main Content -->
+    <div class="post-title-haojen">
+        <span>
+            微信小程序获取formId
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <blockquote><p>小程序 / 微信小程序</p>
+</blockquote>
+<p>小程序要实现消息推送就要先获取用户的formId。</p>
+<p><img src="/images/formId.jpg" alt="效果图"></p>
+<h2 id="获取formId"><a href="#获取formId" class="headerlink" title="获取formId"></a>获取formId</h2><p>1、必须通过form组件提交才能获取到formId;</p>
+<p>2、给form组件设置report-submit=”true”属性;</p>
+<p>3、给form组件添加bindsubmit事件绑定，携带 form 中的数据触发 submit 事件，event.detail = {value : {‘name’: ‘value’} , formId: ‘’};</p>
+<p>4、必须用户手动触发提交表单，不能JS模拟提交，所以，页面上必须要有提交按钮;</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//  wxml</span><br><span class="line">&lt;form report-submit=&apos;true&apos; bindsubmit=&apos;userSubmit&apos;&gt;</span><br><span class="line">  &lt;button class=&apos;button&apos; bindtap=&apos;copy&apos;</span><br><span class="line">    form-type=&apos;submit&apos;&gt;获取formId&lt;/button&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//  js</span><br><span class="line">userSubmit: function (e) &#123;</span><br><span class="line">  console.log(e.detail.formId);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>开发工具里面是没办法查看到真实的formId的，会是这样一句提示”the formId is a mock one”，但是在真机运行时是可以看到具体的内容的，所以呢提交给服务端就可以啦</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/微信小程序授权登陆/" data-toggle="tooltip" data-placement="top"
+                           title="微信小程序授权登陆">下一篇 &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
 
 
+                <!--加入新的评论系统-->
+                
 
-<div class="post-preview "
-     style="background-image: url('/images/bg1.png')">
-    <a href="/浏览器存储/">
-        <h2 class="post-title">
-            浏览器存储
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-10-05
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                浏览器 / 浏览器存储
+                
 
-在客户端(浏览器端)存储数据有诸多益处，最主要的一点是能快速访问(网页)数据
-cookieCookie指某些网站为了辨别用户身份而储存在用户本地终端上的数据(通常经过加密)。 cookie是服务端生成，客户端进行维护和存储。
-cookie 的基本 CRUD 操作cook..
-            </p>
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#获取formId"><span class="toc-text">获取formId</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现"><span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意"><span class="toc-text">注意</span></a></li></ol>
+                </div>
+            </div>
         </div>
-    </a>
 
-</div>
+        <div class="row">
+            <!-- Sidebar Container -->
 
-<hr>
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
 
-
-
-
-<!-- 翻页 pager -->
-
-<ul class="pager">
-    
-    
-</ul>
-
-
-        </div>
-        <!-- Sidebar Container -->
-        <div class="
-                col-lg-3 col-lg-offset-0
-                col-md-3 col-md-offset-0
-                col-sm-12
-                col-xs-12
-                sidebar-container
-            ">
-
-            <!-- About Me -->
-            <section class="visible-md visible-lg" style="padding: 0 18px">
-                <div class="short-about">
-                    <!--侧边栏头像-->
-                    
-                    <img src="/images/headImg.png"/>
-                    
-                    <h5><a href="/about/">BerniLin 21</a></h5>
-                    
-                    <p>醒来，读书，写长长的代码</p>
-                    
-                    <hr>
-                    <!-- SNS Link 社交 -->
-                    <ul class="list-inline">
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
                         
+                        <a class="tag" href="/Tags/#微信小程序"
+                           title="微信小程序">微信小程序</a>
                         
-                        <li>
-                            <a target="_blank" href="https://twitter.com/linsizao">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                        </span>
-                            </a>
-                        </li>
-                        
-                        
-                        <li>
-                            <a target="_blank" href="https://www.zhihu.com/people/BerinLin21">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa  fa-stack-1x fa-inverse">知</i>
-                                        </span>
-                            </a>
-                        </li>
-                        
+                    </div>
+                </section>
+                
 
+                <!-- Friends Blog -->
+                
+                <div style="margin-top: 20px;">
+                    <h5 class="text-center">FRIENDS</h5>
+                    <ul class="list-inline text-center">
                         
-                        <li>
-                            <a target="_blank" href="http://weibo.com/6740509319">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                                        </span>
-                            </a>
-                        </li>
+                        <li><a href="http://czero.cn">czero</a></li>
                         
-
+                        <li><a href="http://shekang.me">shekang</a></li>
                         
-
-                        
-                        <li>
-                            <a target="_blank" href="https://github.com/linsizao">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                        </span>
-                            </a>
-                        </li>
-                        
-
+                        <li><a href="http://burqee.com">MuMu</a></li>
                         
                     </ul>
                 </div>
-            </section>
-
-            <!-- Featured Tags  标签 -->
-            
-            <section>
-                <div class="tags">
-                    
-                    
-                    <a href="/Tags/#test" title="test"
-                       rel="1">test</a>
-                    
-                    
-                    
-                    <a href="/Tags/#古文" title="古文"
-                       rel="1">古文</a>
-                    
-                    
-                    
-                    <a href="/Tags/#Vue" title="Vue"
-                       rel="2">Vue</a>
-                    
-                    
-                    
-                    <a href="/Tags/#git" title="git"
-                       rel="2">git</a>
-                    
-                    
-                    
-                    <a href="/Tags/#webpack" title="webpack"
-                       rel="1">webpack</a>
-                    
-                    
-                    
-                    <a href="/Tags/#Hexo" title="Hexo"
-                       rel="1">Hexo</a>
-                    
-                    
-                    
-                    <a href="/Tags/#读书" title="读书"
-                       rel="2">读书</a>
-                    
-                    
-                    
-                    <a href="/Tags/#微信小程序" title="微信小程序"
-                       rel="3">微信小程序</a>
-                    
-                    
-                    
-                    <a href="/Tags/#浏览器" title="浏览器"
-                       rel="1">浏览器</a>
-                    
-                    
-                </div>
-            </section>
-            
-
-            
-            <hr>
-            <h5 style="text-align: center;">Friends</h5>
-            <ul class="list-inline" style="text-align: center;">
                 
-                <li><a href="http://czero.cn" target="_blank">czero</a></li>
-                
-                <li><a href="http://shekang.me" target="_blank">shekang</a></li>
-                
-                <li><a href="http://burqee.com" target="_blank">MuMu</a></li>
-                
-
-            </ul>
-            
+            </div>
         </div>
+
     </div>
-</div>
+</article>
+
+
+
+
+
+
 
 <!-- Footer -->
 <!-- Footer -->
