@@ -24,7 +24,7 @@
         
     </title>
 
-    <link rel="canonical" href="http://linsizao.gitee.io/archives/2019/page/2/">
+    <link rel="canonical" href="http://linsizao.gitee.io/archives/2019/12/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -174,158 +174,20 @@
 
 <div class="post-preview "
      style="background-image: url('/images/bg1.png')">
-    <a href="/微信小程序生命周期/">
+    <a href="/vue-组件通讯/">
         <h2 class="post-title">
-            微信小程序生命周期
+            vue 组件通讯
         </h2>
         <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-04-20
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-12-15
         </p>
         
         <div class="post-content-preview">
             <p>
-                小程序 / 微信小程序
+                Vue / vue 组件通讯
 
-const app = getApp()Page(&#123;  data: &#123;  &#125;,  onLanch:function() &#123;    console.log(&apos;当小程序初始化完成时，会触发onLanch,全局只触发一次&ap..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('/images/bg1.png')">
-    <a href="/Vue生命周期/">
-        <h2 class="post-title">
-            Vue生命周期
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-04-20
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                Vue / Vue 生命周期
-
-&lt;template&gt;  &lt;div class=&quot;hello&quot;&gt;    &lt;h1&gt;&#123;&#123;msg&#125;&#125;&lt;/h1&gt;  &lt;/div&gt;&lt;/template..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('/images/king.jpg')">
-    <a href="/小王子/">
-        <h2 class="post-title">
-            小王子
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-04-07
-        </p>
-        
-        <h3 class="post-subtitle">
-            星星发亮是为了让每一个人有一天都能找到属于自己的星星
-        </h3>
-        
-        <div class="post-content-preview">
-            <p>
-                [法] 安托万·德·圣·埃克苏佩里 / 1942 著
-
-久闻其名，却不见其详。这是小王子在我阅读前给我印象。读后竟是相见恨晚…小王子讲述的是一个关于成长，关于爱的故事。故事的一开始是在一个小小的星球，那里什么都很小。。。
-生命：每个人都有属于他的独一无二的星球《小王子》故事的起点是一颗孤独的星球..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('/images/bg1.png')">
-    <a href="/hello-hexo/">
-        <h2 class="post-title">
-            Hello Hexo
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-04-06
-        </p>
-        
-        <h3 class="post-subtitle">
-            使用Github Pages+Hexo+Anisina搭建博客
-        </h3>
-        
-        <div class="post-content-preview">
-            <p>
-                博客 / 教程
-
-搭建属于自己的博客，想必是所有的开发者都曾想过且有为数不少的人在做的事情吧！我也不例外，最近有接触到一些关于搭建博客的开源项目，就开始搭建自己的博客。我的博客采用的解决方案是Github Pages+Hexo+Anisina，话不多说，开始吧！
-先决环境1、git2、node关..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('/images/bg1.png')">
-    <a href="/写给年轻人的简明国学常识/">
-        <h2 class="post-title">
-            写给年轻人的简明国学常识
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-03-31
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-<div class="post-preview "
-     style="background-image: url('/images/bg1.png')">
-    <a href="/ChineseTest/">
-        <h2 class="post-title">
-            中文测试
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-03-24
-        </p>
-        
-        <h3 class="post-subtitle">
-            is a test
-        </h3>
-        
-        <div class="post-content-preview">
-            <p>
-                创建一条博文
-This is a Chinese test post.
-善我王上魚、產生資西員合兒臉趣論。畫衣生這著爸毛親可時，安程幾？合學作。觀經而作建。都非子作這！法如言子你關！手師也。
-以也座論頭室業放。要車時地變此親不老高小是統習直麼調未，行年香一？
-就竟在，是我童示讓利分和異種百路關母..
+组件式开发作为 Vue 框架的核心思想，那么组件之间的通讯就显得尤为重要了
+1、propsprops 是最常见的父组件向子组件传值的属性。当父组件该属性变换时，子组件也会自动变换。props 可以是数组或者对象，对象允许配置高级选项。使用 kebab-case (..
             </p>
         </div>
     </a>
@@ -340,10 +202,6 @@ This is a Chinese test post.
 <!-- 翻页 pager -->
 
 <ul class="pager">
-    
-    <li class="previous">
-        <a href="/archives/2019/">&larr; Newer Posts</a>
-    </li>
     
     
 </ul>

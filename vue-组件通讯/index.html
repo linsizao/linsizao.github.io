@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>BerniLin 21's blog</title>
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="linsizao在 Github 上的个人博客">
+    <meta name="keyword" content>
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <meta name="baidu-site-verification" content="0Uwn770VAZ">
+    <meta name="google-site-verification" content="6cScDfvGQVAGczMjG9T9PeDXoMFR7-3mmvLLM40XfQE">
+    <link rel="shortcut icon" href="/images/favicon.png">
+    <link rel="alternate" type="application/atom+xml" title="BerniLin 21" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        vue 组件通讯｜BerniLin 21&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="http://linsizao.gitee.io/vue-组件通讯/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        /* background-image: url('bg10.jpg') */
+        
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    BerniLin 21
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/Tags/">Tags</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/Resume/">Resume</a>
+                        </li>
+							
+						
+                    
+                        
+							
+								
+							
+						
+                    
+					
+					
+						<li>
+							<a href="/about">About</a>
+						</li>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="undefined/images/bg1.png">
+
+
+<style>
+    
+    /* header.intro-header {
+        background-image: url('/images/bg1.png?imageView2/1/w/1400/h/400/interlace/1/q/90')
+    } */
+    .intro-header>.container{
+        background-image: url('/images/bg1.png?imageView2/1/w/1400/h/400/interlace/1/q/90')
+
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>vue 组件通讯</h1>
+                    
+                    <span class="meta">
+                         作者 BerniLin 21
+                        <span>
+                          日期 2019-12-15
+                         </span>
+                    </span>
+                    <div class="meta">
+                      <em>字数: 2k</em>
+                      <span>
+                        <em class="meta archive-article-date">
+                          阅读量:<em id="busuanzi_value_page_pv"></em>
+                        </em>
+                      </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/Tags/#Vue"
+                           title="Vue">Vue</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            vue 组件通讯
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <blockquote><p>Vue / vue 组件通讯</p>
+</blockquote>
+<p>组件式开发作为 Vue 框架的核心思想，那么组件之间的通讯就显得尤为重要了</p>
+<h2 id="1、props"><a href="#1、props" class="headerlink" title="1、props"></a>1、<code>props</code></h2><p><code>props</code> 是最常见的父组件向子组件传值的属性。当父组件该属性变换时，子组件也会自动变换。<code>props</code> 可以是数组或者对象，对象允许配置高级选项。使用 kebab-case (短横线分隔命名) 命名</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 简单语法</span><br><span class="line">props: [&apos;size&apos;, &apos;myMessage&apos;]</span><br><span class="line"></span><br><span class="line">// 对象语法</span><br><span class="line">props: &#123;</span><br><span class="line">  property: &#123;</span><br><span class="line">    type: Number, // 传参限定类型 String/Number/Boolean/Array/Object/Date/Function/Symbol</span><br><span class="line">    default: any, // 默认值,对象或数组默认值必须从一个工厂函数获取如 default:()=&gt;[]</span><br><span class="line">    required: Boolean, // 定义是否必填项</span><br><span class="line">    validator: Function, // 自定义验证函数</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2、-emit"><a href="#2、-emit" class="headerlink" title="2、$emit"></a>2、<code>$emit</code></h2><p><code>$emit</code> 是最常见的子传父的方法，子组件触发父组件给自己绑定的事件，同时附加参数传给监听器回调。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 父组件</span><br><span class="line">&lt;home @call-back=&quot;callBackFun&quot;&gt;</span><br><span class="line"></span><br><span class="line">// 子组件</span><br><span class="line">this.$emit(&apos;call-back&apos;, data)</span><br></pre></td></tr></table></figure>
+<h2 id="3、v-model"><a href="#3、v-model" class="headerlink" title="3、v-model"></a>3、<code>v-model</code></h2><p><code>v-model</code> 用于模板中输入框value值的数据双向绑定，但在组件中 <code>v-model</code> 则会等价于:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;base-input</span><br><span class="line">  v-bind:value=&quot;value&quot;</span><br><span class="line">  v-on:input=&quot;value = $event&quot;</span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+<p>将其 <code>value</code> 特性绑定到一个名叫 <code>value</code> 的 <code>prop</code> 上 在其 <code>input</code> 事件被触发时，将新的值通过自定义的 <code>input</code> 事件抛出</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 子组件</span><br><span class="line">Vue.component(&apos;base-input&apos;, &#123;</span><br><span class="line">  props: &#123;</span><br><span class="line">    value: &#123;</span><br><span class="line">      type: [String, Number],</span><br><span class="line">      default: &apos;&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  template: `</span><br><span class="line">    &lt;input</span><br><span class="line">      v-bind:value=&quot;value&quot;</span><br><span class="line">      v-on:input=&quot;$emit(&apos;input&apos;, $event.target.value)&quot;</span><br><span class="line">    &gt;</span><br><span class="line">  `</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">父组件</span><br><span class="line">&lt;base-input v-model=&quot;value&quot;&gt;&lt;/custom-input&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="4、-refs"><a href="#4、-refs" class="headerlink" title="4、$refs"></a>4、<code>$refs</code></h2><p>通过给子组件添加 <code>ref</code> 属性，然后通过该属性访问子组件实例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 父组件</span><br><span class="line">&lt;base-input ref=&quot;input&quot;/&gt;</span><br><span class="line"></span><br><span class="line">mounted()&#123;</span><br><span class="line">  console.log(this.$refs.input) // 即可拿到子组件的实例，就可以直接操作 data 和 methods</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="5、-sync"><a href="#5、-sync" class="headerlink" title="5、.sync"></a>5、<code>.sync</code></h2><p>子组件可以修改父组件中的值，举个弹窗的栗子<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 子组件</span><br><span class="line">props: &#123;</span><br><span class="line">  show: &#123;</span><br><span class="line">    type: Boolean,</span><br><span class="line">    default: () =&gt; false</span><br><span class="line">  &#125;,</span><br><span class="line">computed: &#123;</span><br><span class="line">  showDialog: &#123;</span><br><span class="line">    get() &#123;</span><br><span class="line">      return this.showDialog</span><br><span class="line">    &#125;,</span><br><span class="line">    set(val) &#123;</span><br><span class="line">      // 通过 this.$emit(&apos;update: 父组件传入属性名&apos;, 设置的值) 改变父组件指定属性的值</span><br><span class="line">      this.$emit(&apos;update:showDialog&apos;, val)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="6、-root"><a href="#6、-root" class="headerlink" title="6、$root"></a>6、<code>$root</code></h2><p>获取当前组件树的根 Vue 实例。如果当前实例没有父实例，此实例将会是其自己。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mounted()&#123;</span><br><span class="line">  console.log(this.$root) // 获取根实例，最后所有组件都是挂载到根实例上</span><br><span class="line">  console.log(this.$root.$children[0]) // 获取根实例的一级子组件，一般不建议这样使用</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="7、v-slot"><a href="#7、v-slot" class="headerlink" title="7、v-slot"></a>7、<code>v-slot</code></h2><p>子组件内数据可以被父页面拿到，用来代替 <code>.slot</code>，<code>slot-cope</code> 和 <code>scope</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 父组件</span><br><span class="line">&lt;todo-list&gt;</span><br><span class="line"> &lt;template v-slot:todo=&quot;slotProps&quot; &gt;</span><br><span class="line">   &#123;&#123;slotProps.user.firstName&#125;&#125;</span><br><span class="line"> &lt;/template&gt; </span><br><span class="line">&lt;/todo-list&gt; </span><br><span class="line">//slotProps 可以随意命名</span><br><span class="line">//slotProps 接取的是子组件标签slot上属性数据的集合所有v-bind:user=&quot;user&quot;</span><br><span class="line"></span><br><span class="line">// 子组件</span><br><span class="line">&lt;slot name=&quot;todo&quot; :user=&quot;user&quot; :test=&quot;test&quot;&gt;</span><br><span class="line">    &#123;&#123; user.lastName &#125;&#125;</span><br><span class="line"> &lt;/slot&gt; </span><br><span class="line">data() &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    user:&#123;</span><br><span class="line">      lastName:&quot;Zhang&quot;,</span><br><span class="line">      firstName:&quot;yue&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    test:[1,2,3,4]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line">// &#123;&#123; user.lastName &#125;&#125;是默认数据  v-slot:todo 当父页面没有(=&quot;slotProps&quot;)</span><br></pre></td></tr></table></figure>
+<h2 id="8、-parent-和-children"><a href="#8、-parent-和-children" class="headerlink" title="8、$parent 和 $children"></a>8、<code>$parent</code> 和 <code>$children</code></h2><p><code>$parent</code> 属性指向的父实例</p>
+<p><code>$children</code> 属性指向当前实例的直接子组件数组</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 父组件</span><br><span class="line">mounted()&#123;</span><br><span class="line">  console.log(this.$children) </span><br><span class="line">  // 可以拿到 一级子组件的属性和方法</span><br><span class="line">  // 所以就可以直接改变 data,或者调用 methods 方法</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 子组件</span><br><span class="line">mounted()&#123;</span><br><span class="line">  console.log(this.$parent) // 可以拿到 parent 的属性和方法</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="9、-attrs-和-listeners"><a href="#9、-attrs-和-listeners" class="headerlink" title="9、$attrs 和 $listeners"></a>9、<code>$attrs</code> 和 <code>$listeners</code></h2><p><code>$attrs</code> 获取子传父中未在 <code>props</code> 定义的值。当一个组件没有声明任何 <code>prop</code> 时，这里会包含所有父作用域的绑定 (class 和 style 除外)，并且可以通过 <code>v-bind=&quot;$attrs&quot;</code> 传入内部组件</p>
+<p><code>$listeners</code> 包含了父作用域中的 (不含 .native 修饰器的) <code>v-on</code> 事件监听器。它可以通过 <code>v-on=&quot;$listeners&quot;</code> 传入内部组件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 组件A</span><br><span class="line">Vue.component(&apos;A&apos;, &#123;</span><br><span class="line">  template: `</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;p&gt;this is parent component!&lt;/p&gt;</span><br><span class="line">      &lt;B :messagec=&quot;messagec&quot; :message=&quot;message&quot; v-on:getCData=&quot;getCData&quot; v-on:getChildData=&quot;getChildData(message)&quot;&gt;&lt;/B&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  `,</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      message: &apos;hello&apos;,</span><br><span class="line">      messagec: &apos;hello c&apos; //传递给c组件的数据</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    // 执行B子组件触发的事件</span><br><span class="line">    getChildData(val) &#123;</span><br><span class="line">      console.log(`这是来自B组件的数据：$&#123;val&#125;`);</span><br><span class="line">    &#125;,</span><br><span class="line">    </span><br><span class="line">    // 执行C子组件触发的事件</span><br><span class="line">    getCData(val) &#123;</span><br><span class="line">      console.log(`这是来自C组件的数据：$&#123;val&#125;`);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 组件B</span><br><span class="line">Vue.component(&apos;B&apos;, &#123;</span><br><span class="line">  template: `</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;input type=&quot;text&quot; v-model=&quot;mymessage&quot; @input=&quot;passData(mymessage)&quot;&gt; </span><br><span class="line">      &lt;!-- C组件中能直接触发 getCData 的原因在于：B组件调用 C组件时，使用 v-on 绑定了 $listeners 属性 --&gt;</span><br><span class="line">      &lt;!-- 通过v-bind 绑定 $attrs 属性，C组件可以直接获取到 A组件中传递下来的 props（除了 B组件中 props声明的） --&gt;</span><br><span class="line">      &lt;C v-bind=&quot;$attrs&quot; v-on=&quot;$listeners&quot;&gt;&lt;/C&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  `,</span><br><span class="line"></span><br><span class="line">   props: &#123;</span><br><span class="line">    message: &#123;</span><br><span class="line">       type: String,</span><br><span class="line">       default: &apos;&apos;</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line">  data()&#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      mymessage: this.message</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    passData(val)&#123;</span><br><span class="line">      //触发父组件中的事件</span><br><span class="line">      this.$emit(&apos;getChildData&apos;, val)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 组件C</span><br><span class="line">Vue.component(&apos;C&apos;, &#123;</span><br><span class="line">  template: `</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;input type=&quot;text&quot; v-model=&quot;$attrs.messagec&quot; @input=&quot;passCData($attrs.messagec)&quot;&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  `,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    passCData(val) &#123;</span><br><span class="line">      // 触发父组件A中的事件</span><br><span class="line">      this.$emit(&apos;getCData&apos;,val)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line">    </span><br><span class="line">var app=new Vue(&#123;</span><br><span class="line">  el:&apos;#app&apos;,</span><br><span class="line">  template: `</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;A /&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  `</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="10、provide-和-inject"><a href="#10、provide-和-inject" class="headerlink" title="10、provide 和 inject"></a>10、<code>provide</code> 和 <code>inject</code></h2><p>在父组件中通过 <code>provider</code> 来提供属性，然后在后代组件中通过 <code>inject</code> 来注入变量。不论子组件有多深，只要调用了 <code>inject</code> 那么就可以注入在 <code>provider</code> 中提供的数据。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 父组件:</span><br><span class="line">provide: &#123; // provide 是一个对象,提供一个属性或方法</span><br><span class="line">  foo: &apos;这是 foo&apos;,</span><br><span class="line">  fooMethod:()=&gt;&#123;</span><br><span class="line">    console.log(&apos;父组件 fooMethod 被调用&apos;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">// 后代组件</span><br><span class="line">inject: [&apos;foo&apos;,&apos;fooMethod&apos;], // 数组或者对象，注入到组件</span><br><span class="line">mounted() &#123;</span><br><span class="line">  this.fooMethod()</span><br><span class="line">  console.log(this.foo)</span><br><span class="line">&#125;</span><br><span class="line">// 在父组件下面所有的后代组件都可以利用 inject</span><br></pre></td></tr></table></figure>
+<h2 id="11、vue-router-路由传参"><a href="#11、vue-router-路由传参" class="headerlink" title="11、vue-router 路由传参"></a>11、<code>vue-router</code> 路由传参</h2><p>当需要实现跨路由组件的传参时，可以查看<a href="https://router.vuejs.org/zh/guide/essentials/passing-props.html" target="_blank" rel="noopener">官方</a>提供的解决方案，或者是看我之前写的 <a href="https://linsizao.gitee.io/Vue-%E8%B7%AF%E7%94%B1/#%E7%BC%96%E7%A8%8B%E5%BC%8F">Vue Router</a> 的文章</p>
+<h2 id="12、EventBus"><a href="#12、EventBus" class="headerlink" title="12、EventBus"></a>12、<code>EventBus</code></h2><p>当需要实现兄弟组件间通讯，并且项目规模不大的情况下，我们可以通过使用中央事件总线 <code>EventBus</code> 的方式实现<br>EventBus 通过新建一个 Vue 事件 <code>bus</code> 对象，然后通过 <code>bus.$emit</code> 触发事件，<code>bus.$on</code> 监听触发的事件<br>如果项目规模是大中型的，那建议使用后面即将介绍的 <a href="https://vuex.vuejs.org/" target="_blank" rel="noopener">Vuex</a> 状态管理</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 在 main.js</span><br><span class="line">Vue.prototype.$eventBus=new Vue()</span><br><span class="line"></span><br><span class="line">// 传值组件</span><br><span class="line">this.$eventBus.$emit(&apos;eventTarget&apos;,&apos;这是eventTarget传过来的值&apos;)</span><br><span class="line"></span><br><span class="line">// 接收组件</span><br><span class="line">this.$eventBus.$on(&quot;eventTarget&quot;,v=&gt;&#123;</span><br><span class="line">  console.log(&apos;eventTarget&apos;,v);//这是eventTarget传过来的值</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="13、Vue-observable"><a href="#13、Vue-observable" class="headerlink" title="13、Vue.observable"></a>13、<code>Vue.observable</code></h2><p>让一个对象可响应。<br>Vue 内部会用它来处理 <code>data</code> 函数返回的对象。返回的对象可以直接用于渲染函数和计算属性内，并且会在发生改变时触发相应的更新。<br>可作为最小化的跨组件状态存储器，用于简单的场景</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// /store/store.js</span><br><span class="line">import Vue from &apos;vue&apos;</span><br><span class="line"></span><br><span class="line">export const store = Vue.observable(&#123; count: 0 &#125;)</span><br><span class="line">export const mutations = &#123;</span><br><span class="line">  setCount (count) &#123;</span><br><span class="line">    store.count = count</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//使用</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;label for=&quot;bookNum&quot;&gt;数 量&lt;/label&gt;</span><br><span class="line">    &lt;button @click=&quot;setCount(count+1)&quot;&gt;+&lt;/button&gt;</span><br><span class="line">    &lt;span&gt;&#123;&#123;count&#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;button @click=&quot;setCount(count-1)&quot;&gt;-&lt;/button&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import &#123; store, mutations &#125; from &apos;@/store/store&apos;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  name: &apos;Add&apos;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    count () &#123;</span><br><span class="line">      return store.count</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    setCount: mutations.setCount</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="14、Vuex-状态管理"><a href="#14、Vuex-状态管理" class="headerlink" title="14、Vuex 状态管理"></a>14、<code>Vuex</code> 状态管理</h2><p><code>Vuex</code> 是状态管理工具，实现了项目状态的集中式管理。详细的关于 <code>Vuex</code> 的介绍，请查看<a href="https://vuex.vuejs.org/zh/" target="_blank" rel="noopener">官网文档</a></p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/微信小程序获取formId/" data-toggle="tooltip" data-placement="top"
+                           title="微信小程序获取formId">下一篇 &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、props"><span class="toc-text">1、props</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、-emit"><span class="toc-text">2、$emit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、v-model"><span class="toc-text">3、v-model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、-refs"><span class="toc-text">4、$refs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、-sync"><span class="toc-text">5、.sync</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6、-root"><span class="toc-text">6、$root</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7、v-slot"><span class="toc-text">7、v-slot</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8、-parent-和-children"><span class="toc-text">8、$parent 和 $children</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9、-attrs-和-listeners"><span class="toc-text">9、$attrs 和 $listeners</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10、provide-和-inject"><span class="toc-text">10、provide 和 inject</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11、vue-router-路由传参"><span class="toc-text">11、vue-router 路由传参</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12、EventBus"><span class="toc-text">12、EventBus</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13、Vue-observable"><span class="toc-text">13、Vue.observable</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14、Vuex-状态管理"><span class="toc-text">14、Vuex 状态管理</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/Tags/#Vue"
+                           title="Vue">Vue</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <div style="margin-top: 20px;">
+                    <h5 class="text-center">FRIENDS</h5>
+                    <ul class="list-inline text-center">
+                        
+                        <li><a href="http://czero.cn">czero</a></li>
+                        
+                        <li><a href="http://shekang.me">shekang</a></li>
+                        
+                        <li><a href="http://burqee.com">MuMu</a></li>
+                        
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+
+                        
+                        
+                        <li>
+                          <a target="_blank" href="https://twitter.com/linsizao">
+                            <span class="fa-stack fa-lg">
+                              <i class="fa fa-circle fa-stack-2x"></i>
+                              <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                          </a>
+                        </li>
+                        
+                        
+                        <li>
+                          <a target="_blank" href="https://www.zhihu.com/people/BerinLin21">
+                            <span class="fa-stack fa-lg">
+                              <i class="fa fa-circle fa-stack-2x"></i>
+                              <i class="fa fa-stack-1x fa-inverse">知</i>
+                            </span>
+                          </a>
+                        </li>
+                        
+                        
+                        
+                        <li>
+                          <a target="_blank" href="http://weibo.com/6740509319">
+                            <span class="fa-stack fa-lg">
+                              <i class="fa fa-circle fa-stack-2x"></i>
+                              <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                          </a>
+                        </li>
+                        
+                        
+                        
+                        
+                        
+                        <li>
+                          <a target="_blank" href="https://github.com/linsizao">
+                            <span class="fa-stack fa-lg">
+                              <i class="fa fa-circle fa-stack-2x"></i>
+                              <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                          </a>
+                        </li>
+                        
+                        
+                        
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; BerniLin 21 2019
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">MIA SAN MIA</span>
+                </p>
+                <!-- <p>
+                  <span id="busuanzi_container_site_pv"" style=" font-size: 12px;display:none;">总访问量：<span id="busuanzi_value_site_pv"></span>次</span>
+                  <span class="post-meta-divider">|</span>
+                  <span id="busuanzi_container_site_uv" style="font-size: 12px;display:none;">总访客：<span id="busuanzi_value_site_uv"></span>人</span>
+                </p> -->
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://linsizao.gitee.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    var _baId = 'e2b919b5daa739e632cb9c6a177410d2';
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="//cdn1.lncld.net/static/js/2.5.0/av-min.js"></script>
+<script>
+  var APP_ID = 'erYGLgqXmQtCoFKaguuOPJhd';
+  var APP_KEY = 'yc5Jfn2fhX45zoupV8qPCi7o';
+  AV.init({
+    appId: APP_ID,
+    appKey: APP_KEY
+  });
+  // 显示次数
+  function showTime(Counter) {
+    var query = new AV.Query("Counter");
+    if ($(".leancloud_visitors").length > 0) {
+      var url = $(".leancloud_visitors").attr('id').trim();
+      // where field
+      query.equalTo("words", url);
+      // count
+      query.count().then(function (number) {
+        // There are number instances of MyClass where words equals url.
+        $(document.getElementById(url)).text(number ? number : '--');
+      }, function (error) {
+        // error is an instance of AVError.
+      });
+    }
+  }
+  // 追加pv
+  function addCount(Counter) {
+    var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'icafebolger.com';
+    var Counter = AV.Object.extend("Counter");
+    var query = new Counter;
+    query.save({
+      words: url
+    }).then(function (object) {
+    })
+  }
+  $(function () {
+    var Counter = AV.Object.extend("Counter");
+    addCount(Counter);
+    showTime(Counter);
+  });
+</script>
+<!--wechat title img-->
+<img class="wechat-title-img" src="/images/headImg.png">
+</body>
+
+</html>

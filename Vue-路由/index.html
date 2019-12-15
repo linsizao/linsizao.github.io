@@ -83,7 +83,7 @@
                         
 							
                         <li>
-                            <a href="/Resume/">Resume</a>
+                            <a href="/Tags/">Tags</a>
                         </li>
 							
 						
@@ -91,7 +91,7 @@
                         
 							
                         <li>
-                            <a href="/Tags/">Tags</a>
+                            <a href="/Resume/">Resume</a>
                         </li>
 							
 						
@@ -180,7 +180,7 @@
                          </span>
                     </span>
                     <div class="meta">
-                      <em>字数: 1.5k</em>
+                      <em>字数: 1.6k</em>
                       <span>
                         <em class="meta archive-article-date">
                           阅读量:<em id="busuanzi_value_page_pv"></em>
@@ -211,20 +211,20 @@
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <blockquote><p>Vue / vue Router</p>
 </blockquote>
-<p>使用Vue创建单页应用势必会用到Vue Router，<br>此前关于Vue Router的知识比较零散，现在得空便来整理Vue Router。。。</p>
+<p>使用 Vue 创建单页应用势必会用到 Vue Router，<br>此前关于 Vue Router 的知识比较零散，现在得空便来整理 Vue Router。。。</p>
 <h2 id="简单路由"><a href="#简单路由" class="headerlink" title="简单路由"></a>简单路由</h2><p>路由跳转可使用申明式跳转和编程式跳转，</p>
 <h3 id="申明式"><a href="#申明式" class="headerlink" title="申明式"></a>申明式</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!-- &lt;router-link&gt; 默认会被渲染成一个 `&lt;a&gt;` 标签 --&gt;</span><br><span class="line">&lt;router-link to=&quot;/foo&quot;&gt;Go to Foo&lt;/router-link&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- 路由匹配到的组件将渲染在这里 --&gt;</span><br><span class="line">&lt;router-view&gt;&lt;/router-view&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="编程式"><a href="#编程式" class="headerlink" title="编程式"></a>编程式</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 命名的路由</span><br><span class="line">router.push(&#123; name: &apos;user&apos;, params: &#123; userId: &apos;123&apos; &#125;&#125;)</span><br><span class="line"></span><br><span class="line">// 带查询参数，变成 /register?plan=private</span><br><span class="line">router.push(&#123; path: &apos;register&apos;, query: &#123; plan: &apos;private&apos; &#125;&#125;)</span><br></pre></td></tr></table></figure>
-<p>params 和 query 都是路由传值方式，但是如果提供了 path，params 将会被忽略</p>
+<h3 id="编程式"><a href="#编程式" class="headerlink" title="编程式"></a>编程式</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 命名的路由</span><br><span class="line">router.push(&#123; name: &apos;user&apos;, params: &#123; userId: &apos;123&apos; &#125;&#125;) // 页面获取：this.$route.params.id</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 带查询参数，变成 /register?plan=private</span><br><span class="line">router.push(&#123; path: &apos;register&apos;, query: &#123; plan: &apos;private&apos; &#125;&#125;) // 页面获取：this.$route.query.id</span><br></pre></td></tr></table></figure>
+<p><code>params</code> 和 <code>query</code> 都是路由传值方式，但是如果提供了 <code>path</code>，<code>params</code> 将会被忽略</p>
 <p>ps：其他的编程式跳转<br>  1)、this.$router.replace()<br>    不同就是，它不会向 history 添加新记录，而是跟它的方法名一样 —— 替换掉当前的 history 记录。<br>  2)、this.$router.go()<br>    这个方法的参数是一个整数，意思是在 history 记录中向前或者后退多少步，类似 window.history.go(n)。</p>
 <h3 id="动态路由"><a href="#动态路由" class="headerlink" title="动态路由"></a>动态路由</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">routes: [</span><br><span class="line">  // 动态路径参数 以冒号开头</span><br><span class="line">  &#123; path: &apos;/user/:id&apos;, component: User &#125;,</span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
 <h2 id="路由嵌套以及路由懒加载的实现"><a href="#路由嵌套以及路由懒加载的实现" class="headerlink" title="路由嵌套以及路由懒加载的实现"></a>路由嵌套以及路由懒加载的实现</h2><p>路由嵌套可简单理解为组件下再放组件，并实现路由切换</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">/user/foo/profile                     /user/foo/posts</span><br><span class="line">+------------------+                  +-----------------+</span><br><span class="line">| User             |                  | User            |</span><br><span class="line">| +--------------+ |                  | +-------------+ |</span><br><span class="line">| | Profile      | |  +------------&gt;  | | Posts       | |</span><br><span class="line">| |              | |                  | |             | |</span><br><span class="line">| +--------------+ |                  | +-------------+ |</span><br><span class="line">+------------------+                  +-----------------+</span><br></pre></td></tr></table></figure>
-<p>异步组件定义为返回一个 Promise 的工厂函数 ：</p>
+<p>异步组件定义为返回一个 <code>Promise</code> 的工厂函数 ：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const Foo = () =&gt; Promise.resolve(&#123; /* 组件定义对象 */ &#125;)</span><br></pre></td></tr></table></figure>
-<p>然后我们可以使用动态 import 语法来定义代码分块点：</p>
+<p>然后我们可以使用动态 <code>import</code> 语法来定义代码分块点：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import(&apos;./Foo.vue&apos;) // 返回 Promise</span><br></pre></td></tr></table></figure>
-<p>结合这两者，这就是如何定义一个能够被 Webpack 自动代码分割的异步组件。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const Foo = () =&gt; import(&apos;./Foo.vue&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>结合这两者，这就是如何定义一个能够被 <code>Webpack</code> 自动代码分割的异步组件。<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const Foo = () =&gt; import(&apos;./Foo.vue&apos;)</span><br></pre></td></tr></table></figure></p>
 <p>最后代码如下</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  path: &apos;/redirect&apos;,</span><br><span class="line">  component: Layout,</span><br><span class="line">  hidden: true,</span><br><span class="line">  children: [     //子组件</span><br><span class="line">    &#123;</span><br><span class="line">      path: &apos;/redirect/:path*&apos;,</span><br><span class="line">      component: () =&gt; import(&apos;@/views/redirect/index&apos;)   //懒加载</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="命名路由及命名视图"><a href="#命名路由及命名视图" class="headerlink" title="命名路由及命名视图"></a>命名路由及命名视图</h2><p>由命名路由组成命名视图</p>
@@ -233,22 +233,22 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/settings/emails                                       /settings/profile</span><br><span class="line">+-----------------------------------+                  +------------------------------+</span><br><span class="line">| UserSettings                      |                  | UserSettings                 |</span><br><span class="line">| +-----+-------------------------+ |                  | +-----+--------------------+ |</span><br><span class="line">| | Nav | UserEmailsSubscriptions | |  +------------&gt;  | | Nav | UserProfile        | |</span><br><span class="line">| |     +-------------------------+ |                  | |     +--------------------+ |</span><br><span class="line">| |     |                         | |                  | |     | UserProfilePreview | |</span><br><span class="line">| +-----+-------------------------+ |                  | +-----+--------------------+ |</span><br><span class="line">+-----------------------------------+                  +------------------------------+</span><br></pre></td></tr></table></figure>
 <p>代码实现：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!-- UserSettings.vue --&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">  &lt;h1&gt;User Settings&lt;/h1&gt;</span><br><span class="line">  &lt;NavBar/&gt;</span><br><span class="line">  &lt;router-view/&gt;</span><br><span class="line">  &lt;router-view name=&quot;helper&quot;/&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">//路由配置</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  path: &apos;/settings&apos;,</span><br><span class="line">  // 你也可以在顶级路由就配置命名视图</span><br><span class="line">  component: UserSettings,</span><br><span class="line">  children: [&#123;</span><br><span class="line">    path: &apos;emails&apos;,</span><br><span class="line">    component: UserEmailsSubscriptions</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    path: &apos;profile&apos;,</span><br><span class="line">    components: &#123;</span><br><span class="line">      default: UserProfile,</span><br><span class="line">      helper: UserProfilePreview</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="重定向和别名"><a href="#重定向和别名" class="headerlink" title="重定向和别名"></a>重定向和别名</h2><h3 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h3><p>当用户访问 /a时，URL 将会被替换成 /b，然后匹配路由为 /b</p>
+<h2 id="重定向和别名"><a href="#重定向和别名" class="headerlink" title="重定向和别名"></a>重定向和别名</h2><h3 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h3><p>当用户访问 <code>/a</code> 时，<code>URL</code> 将会被替换成 <code>/b</code>，然后匹配路由为 <code>/b</code></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">routes: [</span><br><span class="line">  &#123; path: &apos;/a&apos;, redirect: &apos;/b&apos; &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<h3 id="别名"><a href="#别名" class="headerlink" title="别名"></a>别名</h3><p>/a 的别名是 /b，意味着，当用户访问 /b 时，URL 会保持为 /b，但是路由匹配则为 /a，就像用户访问 /a 一样。</p>
+<h3 id="别名"><a href="#别名" class="headerlink" title="别名"></a>别名</h3><p><code>/a</code> 的别名是 <code>/b</code>，意味着，当用户访问 <code>/b</code> 时，<code>URL</code> 会保持为 <code>/b</code>，但是路由匹配则为 <code>/a</code>，就像用户访问 <code>/a</code> 一样。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">routes: [</span><br><span class="line">  &#123; path: &apos;/a&apos;, component: A, alias: &apos;/b&apos; &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 <h2 id="路由守卫"><a href="#路由守卫" class="headerlink" title="路由守卫"></a>路由守卫</h2><p>有的时候，我们需要通过路由来进行一些操作，比如最常见的登录权限验证，当用户满足条件时，才让其进入导航，否则就取消跳转，并跳到登录页面让其登录。</p>
-<h3 id="全局守卫"><a href="#全局守卫" class="headerlink" title="全局守卫"></a>全局守卫</h3><p>vue-router全局有三个守卫：</p>
-<p>1、router.beforeEach 全局前置守卫 进入路由之前<br>2、router.beforeResolve 全局解析守卫(2.5.0+) 在beforeRouteEnter调用之后调用<br>3、router.afterEach 全局后置钩子 进入路由之后</p>
+<h3 id="全局守卫"><a href="#全局守卫" class="headerlink" title="全局守卫"></a>全局守卫</h3><p><code>vue-router</code> 全局有三个守卫：</p>
+<p>1、<code>router.beforeEach</code> 全局前置守卫 进入路由之前<br>2、<code>router.beforeResolve</code> 全局解析守卫(2.5.0+) 在 <code>beforeRouteEnter</code> 调用之后调用<br>3、<code>router.afterEach</code> 全局后置钩子 进入路由之后</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// main.js 入口文件</span><br><span class="line">import router from &apos;./router&apos;; // 引入路由</span><br><span class="line">router.beforeEach((to, from, next) =&gt; &#123;</span><br><span class="line">  next();</span><br><span class="line">&#125;);</span><br><span class="line">router.beforeResolve((to, from, next) =&gt; &#123;</span><br><span class="line">  next();</span><br><span class="line">&#125;);</span><br><span class="line">router.afterEach((to, from) =&gt; &#123;</span><br><span class="line">  console.log(&apos;afterEach 全局后置钩子&apos;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>每个守卫方法接收三个参数：<br>to: 即将要进入的目标 路由对象<br>from: 当前导航正要离开的路由<br>next: 这个参数是个函数，且必须调用，否则不能进入路由(页面空白)。</p>
+<p>每个守卫方法接收三个参数：<br><code>to</code>: 即将要进入的目标 路由对象<br><code>from</code>: 当前导航正要离开的路由<br><code>next</code>: 这个参数是个函数，且必须调用，否则不能进入路由(页面空白)。</p>
 <h4 id="全局后置钩子的应用"><a href="#全局后置钩子的应用" class="headerlink" title="全局后置钩子的应用"></a>全局后置钩子的应用</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import router from &apos;./router&apos;; // 引入路由</span><br><span class="line">router.afterEach((to, from) =&gt; &#123;</span><br><span class="line">  if (未登录 &amp;&amp; to.name !== &apos;login&apos;) &#123;</span><br><span class="line">    router.push(&#123; name: &apos;login&apos; &#125;); // 跳转login</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">next() 进入该路由。</span><br><span class="line">next(false): 取消进入路由，url地址重置为from路由地址(也就是将要离开的路由地址)。</span><br><span class="line">next 跳转新路由，当前的导航被中断，重新开始一个新的导航。</span><br></pre></td></tr></table></figure>
-<h3 id="路由独享守卫"><a href="#路由独享守卫" class="headerlink" title="路由独享守卫"></a>路由独享守卫</h3><p>路由配置上直接定义 beforeEnter 守卫：</p>
+<h3 id="路由独享守卫"><a href="#路由独享守卫" class="headerlink" title="路由独享守卫"></a>路由独享守卫</h3><p>路由配置上直接定义 <code>beforeEnter</code> 守卫：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const router = new VueRouter(&#123;</span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">      path: &apos;/foo&apos;,</span><br><span class="line">      component: Foo,</span><br><span class="line">      beforeEnter: (to, from, next) =&gt; &#123;</span><br><span class="line">        // ...</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="路由组件内的守卫："><a href="#路由组件内的守卫：" class="headerlink" title="路由组件内的守卫："></a>路由组件内的守卫：</h3><p>1、beforeRouteEnter 进入路由前<br>2、beforeRouteUpdate (2.2) 路由复用同一个组件时<br>3、beforeRouteLeave 离开当前路由时</p>
+<h3 id="路由组件内的守卫："><a href="#路由组件内的守卫：" class="headerlink" title="路由组件内的守卫："></a>路由组件内的守卫：</h3><p>1、<code>beforeRouteEnter</code> 进入路由前<br>2、<code>beforeRouteUpdate</code> (2.2) 路由复用同一个组件时<br>3、<code>beforeRouteLeave</code> 离开当前路由时</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">beforeRouteEnter (to, from, next) &#123;</span><br><span class="line">  // 在路由独享守卫后调用 不！能！获取组件实例 `this`，组件实例还没被创建</span><br><span class="line">&#125;,</span><br><span class="line">beforeRouteUpdate (to, from, next) &#123;</span><br><span class="line">  // 在当前路由改变，但是该组件被复用时调用 可以访问组件实例 `this`</span><br><span class="line">  // 举例来说，对于一个带有动态参数的路径 /foo/:id，在 /foo/1 和 /foo/2 之间跳转的时候，</span><br><span class="line">  // 由于会渲染同样的 Foo 组件，因此组件实例会被复用。而这个钩子就会在这个情况下被调用。</span><br><span class="line">&#125;,</span><br><span class="line">beforeRouteLeave (to, from, next) &#123;</span><br><span class="line">  // 导航离开该组件的对应路由时调用，可以访问组件实例 `this`</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="完整的导航解析流程"><a href="#完整的导航解析流程" class="headerlink" title="完整的导航解析流程"></a>完整的导航解析流程</h3><p>1、触发进入其他路由。<br>2、调用要离开路由的组件守卫：beforeRouteLeave<br>3、调用局前置守卫：beforeEach<br>4、在重用的组件里调用：beforeRouteUpdate<br>5、调用路由独享守卫：beforeEnter。<br>6、解析异步路由组件。<br>7、在将要进入的路由组件中调用：beforeRouteEnter<br>8、调用全局解析守卫：beforeResolve<br>9、导航被确认。<br>10、调用全局后置钩子的 afterEach 钩子。<br>11、触发DOM更新(mounted)。<br>12、用创建好的实例beforeRouteEnter 守卫中传给 next 的回调函数</p>
+<h3 id="完整的导航解析流程"><a href="#完整的导航解析流程" class="headerlink" title="完整的导航解析流程"></a>完整的导航解析流程</h3><p>1、触发进入其他路由。<br>2、调用要离开路由的组件守卫：<code>beforeRouteLeave</code><br>3、调用局前置守卫：<code>beforeEach</code><br>4、在重用的组件里调用：<code>beforeRouteUpdate</code><br>5、调用路由独享守卫：<code>beforeEnter</code><br>6、解析异步路由组件<br>7、在将要进入的路由组件中调用：<code>beforeRouteEnter</code><br>8、调用全局解析守卫：<code>beforeResolve</code><br>9、导航被确认<br>10、调用全局后置钩子的 <code>afterEach</code> 钩子。<br>11、触发DOM更新(<code>mounted</code>)。<br>12、用创建好的实例 <code>beforeRouteEnter</code> 守卫中传给 next 的回调函数</p>
 <h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><ul>
 <li>官方：  <a href="https://router.vuejs.org" target="_blank" rel="noopener">https://router.vuejs.org</a></li>
 </ul>
